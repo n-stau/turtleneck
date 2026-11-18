@@ -1,0 +1,217 @@
+/* turtleneck tokens = the keynote preset + the core every preset shares.
+   keynote is a blend of 5 premium hardware product pages (research notes kept outside the skill).
+   No web font on purpose: the system stack resolves to the platform UI font (no <link> needed).
+
+   How presets work: styles/<preset>.css loads AFTER this file and only reassigns the variables below (plus a few
+   preset-only component rules). Colors are written once as light-dark(light, dark); `color-scheme` decides which
+   half is used, so .a-dark / .a-light sections and data-theme="dark|light" on <html> flip every color with no
+   second token block. A dark-default preset sets `:root:not([data-theme="light"]) { color-scheme: dark; }`. */
+
+:root {
+  color-scheme: light dark;
+
+  /* ---------- Type ---------- */
+  --a-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --a-font-display: var(--a-font);              /* .a-hero ... .a-tile-head */
+  --a-font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;   /* code, kbd, .a-mono */
+  --a-weight-display: 600;
+  --a-body-size: 1.0625rem;                     /* 17px, follows user zoom */
+  --a-body-lh: 1.5;
+  --a-body-track: -0.01em;
+  /* Display sizes glide from the 375px value to the 1440px value. rem + vw keeps browser zoom working. */
+  --a-size-hero: clamp(3rem, 2.472rem + 2.254vw, 4.5rem);          /* 48 -> 72 */
+  --a-size-headline: clamp(2.25rem, 1.898rem + 1.502vw, 3.25rem);  /* 36 -> 52 */
+  --a-size-section: clamp(1.875rem, 1.567rem + 1.315vw, 2.75rem);  /* 30 -> 44 */
+  --a-size-tile: clamp(1.375rem, 1.243rem + 0.5634vw, 1.75rem);    /* 22 -> 28 */
+  --a-size-subhead: clamp(1.188rem, 1.077rem + 0.4695vw, 1.5rem);  /* 19 -> 24 */
+  /* Optional, unset in keynote (each display class keeps its own value): --a-lh-display, --a-track-display. */
+  --a-eyebrow-font: var(--a-font);
+  --a-eyebrow-size: clamp(1.062rem, 0.9745rem + 0.3756vw, 1.312rem);  /* 17 -> 21, sentence case */
+  --a-eyebrow-weight: 600;
+  --a-eyebrow-track: 0;
+  --a-eyebrow-case: none;
+  --a-eyebrow-color: currentColor;
+  --a-intro-size: clamp(1.062rem, 0.9745rem + 0.3756vw, 1.312rem); /* 17 -> 21 */
+  --a-intro-weight: 400;
+  --a-intro-color: var(--a-text-secondary);
+
+  /* ---------- Color: light-dark(light, dark) ---------- */
+  --a-text: light-dark(#1a1c1f, #f3f4f6);           /* never pure black on white */
+  --a-text-secondary: light-dark(#5d6067, #a6a9b0);
+  --a-text-tertiary: light-dark(#6a6d74, #8f9299);
+  --a-violator: light-dark(#a8400c, #f59a5b);       /* small "New" / promo line */
+  --a-green: light-dark(#13803d, #4cc27a);
+  --a-red: light-dark(#cc2b2b, #ff7b72);
+  --a-bg: light-dark(#ffffff, #0d0e10);
+  --a-bg-alt: light-dark(#f3f4f6, #17181b);         /* alternate sections, tiles, footer */
+  --a-bg-elevated: light-dark(#fafbfc, #1f2024);    /* flyouts, preset cards */
+  --a-fill-quaternary: light-dark(#e6e8eb, #2c2d31);/* chips, segmented controls */
+  --a-hairline: light-dark(#e3e5e8, #3a3c41);
+  /* Accent: the one brand color (SKILL.md "Accent recipe"). --a-blue keeps its old name; it means "accent fill". */
+  --a-blue: #2264ee;                                /* accent fill: primary action, badges */
+  --a-blue-hover: #1c58e2;
+  --a-on-accent: #fff;                              /* label on the fill: ink or white, whichever passes 4.5:1 */
+  --a-accent-text: light-dark(#2264ee, #6e9cff);    /* text-safe step: >= 4.5:1 on bg and bg-alt */
+  --a-link: var(--a-accent-text);
+  --a-focus: var(--a-link);                         /* focus ring, >= 3:1; = the text step unless links are ink */
+  /* Optional: --a-button-bg / --a-button-hover-bg / --a-button-text; unset = the accent (lab, journey: ink). */
+
+  /* ---------- Nav ---------- */
+  --a-nav-bg: light-dark(rgba(255, 255, 255, 0.8), rgba(23, 24, 27, 0.8));
+  --a-nav-text: light-dark(rgba(26, 28, 31, 0.8), rgba(243, 244, 246, 0.8));
+  --a-nav-blur: saturate(180%) blur(20px);
+  --a-nav-h: 52px;
+  --a-localnav-h: 56px;
+
+  /* ---------- Shape, buttons, tiles ---------- */
+  --a-radius-tile: 24px;
+  --a-radius-card: 16px;
+  --a-radius-pill: 999px;
+  --a-radius-button: var(--a-radius-pill);
+  --a-button-h: 44px;
+  --a-button-pad: 0 22px;
+  --a-button-size: 16px;
+  --a-button-weight: 500;
+  --a-button-track: -0.01em;
+  --a-button2-bg: transparent;                      /* secondary button */
+  --a-button2-text: var(--a-link);
+  --a-button2-border: var(--a-link);
+  --a-button2-hover-bg: var(--a-blue);
+  --a-button2-hover-text: var(--a-on-accent);
+  --a-tile-bg: var(--a-bg-alt);                     /* tiles on a page-color section */
+  --a-tile-bg-alt: var(--a-bg);                     /* tiles on an .a-alt section */
+  --a-tile-border: none;
+  --a-tile-shadow: none;
+
+  /* ---------- Layout ---------- */
+  --a-content: 980px;           /* text-led sections */
+  --a-content-wide: 1280px;     /* galleries, tile grids */
+  --a-content-hero: min(1680px, 87.5%);
+  --a-section-pad: clamp(4.5rem, 3.62rem + 3.756vw, 7rem);        /* 72 -> 112px */
+  --a-tile-pad: clamp(1.5rem, 1.148rem + 1.502vw, 2.5rem);        /* 24 -> 40px */
+  --a-bento-gap: clamp(0.75rem, 0.5739rem + 0.7512vw, 1.25rem);   /* 12 -> 20px */
+  --a-tile-gap: 20px;
+  --a-gutter: max(6.25vw, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
+  --a-hit: 44px;                /* minimum touch target */
+
+  /* ---------- Motion ---------- */
+  --a-ease: cubic-bezier(0.4, 0, 0.3, 1);
+  --a-dur: 0.24s;
+  --a-reveal-rise: 16px;
+  --a-reveal-dur: 0.6s;
+}
+/* Theme switches: only color-scheme changes; every light-dark() token follows. */
+:root[data-theme="light"], .a-light { color-scheme: light; }
+:root[data-theme="dark"], .a-dark { color-scheme: dark; }
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--a-font);
+  font-size: var(--a-body-size); line-height: var(--a-body-lh); font-weight: 400; letter-spacing: var(--a-body-track);
+  color: var(--a-text); background: var(--a-bg);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none; text-rendering: optimizeLegibility;
+}
+h1, h2, h3, h4, p { margin: 0; }
+h1, h2, h3, .a-hero, .a-headline, .a-section, .a-tile-head { text-wrap: balance; }
+img, video, canvas, iframe { max-width: 100%; height: auto; display: block; }
+svg { max-width: 100%; }
+a { color: var(--a-link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+:focus-visible { outline: 2px solid var(--a-focus); outline-offset: 1px; }
+.a-mono, code, kbd, pre { font-family: var(--a-font-mono); font-size: 0.875em; }
+
+/* ---------- Type scale ---------- */
+.a-hero      { font-size: var(--a-size-hero);     line-height: var(--a-lh-display, 1.05); letter-spacing: var(--a-track-display, -0.02em); }
+.a-headline  { font-size: var(--a-size-headline); line-height: var(--a-lh-display, 1.08); letter-spacing: var(--a-track-display, -0.015em); }
+.a-section   { font-size: var(--a-size-section);  line-height: var(--a-lh-display, 1.1);  letter-spacing: var(--a-track-display, -0.015em); }
+.a-tile-head { font-size: var(--a-size-tile);     line-height: var(--a-lh-display, 1.2);  letter-spacing: var(--a-track-display, -0.01em); }
+.a-hero, .a-headline, .a-section, .a-tile-head { font-family: var(--a-font-display); font-weight: var(--a-weight-display); }
+.a-subhead   { font-size: var(--a-size-subhead); line-height: 1.25; font-weight: 400; letter-spacing: 0; }
+.a-eyebrow   { font-family: var(--a-eyebrow-font); font-size: var(--a-eyebrow-size); line-height: 1.17; font-weight: var(--a-eyebrow-weight);
+               letter-spacing: var(--a-eyebrow-track); text-transform: var(--a-eyebrow-case); color: var(--a-eyebrow-color); }
+.a-intro     { font-size: var(--a-intro-size); line-height: 1.45; font-weight: var(--a-intro-weight); letter-spacing: 0; color: var(--a-intro-color); }
+.a-intro strong, .a-intro b { color: var(--a-text); font-weight: 600; }
+.a-body      { font-size: var(--a-body-size); line-height: var(--a-body-lh); letter-spacing: var(--a-body-track); }
+.a-body-tight{ font-size: var(--a-body-size); line-height: 1.23536; letter-spacing: var(--a-body-track); }
+.a-small     { font-size: 0.875rem;  line-height: 1.42859; letter-spacing: -0.016em; }
+.a-caption   { font-size: 0.75rem;   line-height: 1.33337; letter-spacing: -0.01em; color: var(--a-text-secondary); }
+.a-violator  { font-size: var(--a-body-size); line-height: 1.23536; color: var(--a-violator); }
+.a-num       { font-variant-numeric: tabular-nums; }
+.a-two-tone .a-mute { color: var(--a-text-secondary); }   /* strong first clause, grey continuation */
+/* Long words must wrap at 320px and at 200% zoom instead of pushing the page sideways. */
+h1, h2, h3, h4, .a-hero, .a-headline, .a-section, .a-tile-head, .a-subhead { overflow-wrap: break-word; hyphens: auto; }
+
+/* ---------- Layout ---------- */
+.a-container      { width: min(var(--a-content), 100% - 2 * var(--a-gutter)); margin-inline: auto; }
+.a-container-wide { width: min(var(--a-content-wide), 100% - 2 * var(--a-gutter)); margin-inline: auto; }
+.a-section-block  { padding-block: var(--a-section-pad); }
+.a-alt            { background: var(--a-bg-alt); }
+.a-dark, .a-light { background: var(--a-bg); color: var(--a-text); }   /* one flipped chapter */
+.a-dark.a-alt, .a-light.a-alt { background: var(--a-bg-alt); }
+/* Tonal gradient headline: near-black into one muted product hue. Swap the end color per product. */
+.a-gradient       { background: linear-gradient(90deg, var(--a-text) 10%, #5b6f8f 90%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.a-center         { text-align: center; }
+.a-visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* ---------- Buttons + links ---------- */
+.a-button {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: var(--a-button-h); padding: var(--a-button-pad); border: 1px solid transparent; border-radius: var(--a-radius-button);
+  font: inherit; font-size: var(--a-button-size); font-weight: var(--a-button-weight); line-height: 1.17648; letter-spacing: var(--a-button-track);
+  background: var(--a-button-bg, var(--a-blue)); color: var(--a-button-text, var(--a-on-accent)); cursor: pointer;
+  transition: background-color var(--a-dur) var(--a-ease), color var(--a-dur) var(--a-ease), border-color var(--a-dur) var(--a-ease);
+}
+.a-button:hover { background: var(--a-button-hover-bg, var(--a-blue-hover)); text-decoration: none; }
+.a-button-secondary { background: var(--a-button2-bg); color: var(--a-button2-text); border-color: var(--a-button2-border); }
+.a-button-secondary:hover { background: var(--a-button2-hover-bg); color: var(--a-button2-hover-text); }
+.a-button-large { min-height: 56px; padding: 14px 28px; font-size: max(var(--a-button-size), 1.125rem); }
+.a-button-small { min-height: 36px; padding: 8px 15px; font-size: 14px; letter-spacing: -0.016em; }
+.a-button-tiny  { min-height: 24px; padding: 4px 11px; font-size: 12px; letter-spacing: -0.01em; }
+.a-button-pill  { border-radius: var(--a-radius-pill); }
+.a-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+/* Touch targets: anything that looks smaller than 44x44 gets an invisible hit area that grows to 44px. */
+.a-button-small, .a-button-tiny, .a-more, .a-hit { position: relative; }
+.a-button-small::before, .a-button-tiny::before, .a-more::before, .a-hit::before {
+  content: ""; position: absolute; inset: min(0px, calc((100% - var(--a-hit)) / 2)); }
+/* "Learn more >" text link with a chevron */
+.a-more::after { content: "\203A"; padding-left: 0.3em; font-size: 1.25em; line-height: 0; position: relative; top: 0.06em; }
+
+/* ---------- Tiles ---------- */
+.a-tile { background: var(--a-tile-bg); border-radius: var(--a-radius-tile); border: var(--a-tile-border); box-shadow: var(--a-tile-shadow); overflow: clip; }   /* clip, not hidden: sticky heads inside keep working */
+.a-alt .a-tile { background: var(--a-tile-bg-alt); }
+/* Grids reflow by available space, not by device: 2 columns once each gets 320px, never more than 2. */
+.a-grid { display: grid; gap: var(--a-tile-gap);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, max(20rem, (100% - var(--a-tile-gap)) / 2)), 1fr)); }
+
+/* ---------- Rail: one row scrolling inside its own box ----------
+   Full-bleed; first item on the .a-container-wide edge, the next items run off the right edge (the peek says "scroll").
+   --a-rail-item sets the item width, --ratio the image ratio (1 covers, 2/3 posters, 9/16 short video, 4/3 listings). */
+.a-rail { --a-rail-inset: max(var(--a-gutter), (100% - var(--a-content-wide)) / 2);
+  display: grid; grid-auto-flow: column; grid-auto-columns: var(--a-rail-item, clamp(9rem, 7rem + 10vw, 14rem)); gap: var(--a-bento-gap);
+  padding-inline: var(--a-rail-inset); scroll-padding-inline: var(--a-rail-inset);
+  overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; }
+.a-rail::-webkit-scrollbar { display: none; }
+.a-rail > * { scroll-snap-align: start; min-width: 0; }
+.a-rail img { width: 100%; aspect-ratio: var(--ratio, 1); object-fit: cover; border-radius: var(--a-radius-card); }
+
+/* ---------- Stat row: big tabular numbers, small labels (label first in the markup) ---------- */
+.a-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr)); gap: var(--a-bento-gap); margin: 0; }
+.a-stats > div { display: flex; flex-direction: var(--a-stats-dir, column); gap: 4px; min-width: 0; }   /* column-reverse: number on top */
+.a-stats dt { font-size: 0.8125rem; font-weight: 500; color: var(--a-text-secondary); }
+.a-stats dd { margin: 0; font-family: var(--a-font-display); font-size: clamp(2rem, 1.824rem + 0.7512vw, 2.5rem); line-height: 1;
+  font-weight: var(--a-stats-weight, var(--a-weight-display)); font-variant-numeric: tabular-nums; }
+
+/* ---------- Scroll reveal (opt-in: JS sets html.a-js and adds .is-in; without JS everything shows) ---------- */
+.a-js .a-reveal { opacity: 0; transform: translateY(var(--a-reveal-rise)); transition: opacity var(--a-reveal-dur) var(--a-ease), transform var(--a-reveal-dur) var(--a-ease); }
+.a-js .a-reveal.is-in { opacity: 1; transform: none; }
+/* Static captures (headless screenshots): data-reveal="off" or .a-reveal-off on <html> shows everything. */
+:is([data-reveal="off"], .a-reveal-off) .a-reveal { opacity: 1; transform: none; transition: none; }
+@media (prefers-reduced-motion: reduce) {
+  .a-js .a-reveal { opacity: 1; transform: none; transition: none; }
+  * { scroll-behavior: auto !important; }
+}

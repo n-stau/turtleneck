@@ -1,0 +1,74 @@
+/* turtleneck preset: market (retail, shop). Load AFTER tokens.css. Light only.
+   Blend of 5 reference sites (research notes kept outside the skill).
+   Font (free, optional; the fallback stack works):
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700;800&display=swap"> */
+
+:root, :root[data-theme] { color-scheme: light; }
+:root {
+  --a-font: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --a-weight-display: 700;
+  --a-body-size: 1rem; --a-body-lh: 1.5; --a-body-track: 0;
+  --a-size-hero: clamp(2.25rem, 1.81rem + 1.878vw, 3.5rem);       /* 36 -> 56, one campaign banner per page */
+  --a-size-headline: clamp(1.75rem, 1.486rem + 1.127vw, 2.5rem);  /* 28 -> 40 */
+  --a-size-section: clamp(1.375rem, 1.243rem + 0.5634vw, 1.75rem);/* 22 -> 28 */
+  --a-size-tile: clamp(1.125rem, 1.081rem + 0.1878vw, 1.25rem);   /* 18 -> 20 */
+  --a-size-subhead: 1.125rem;
+  --a-lh-display: 1.15; --a-track-display: -0.02em;
+  --a-eyebrow-size: 0.875rem; --a-eyebrow-weight: 500; --a-eyebrow-track: 0; --a-eyebrow-color: var(--a-text-secondary);
+  --a-intro-size: 1.125rem; --a-intro-weight: 400; --a-intro-color: var(--a-text-secondary);
+
+  --a-text: #121212;
+  --a-text-secondary: #5c5f66;
+  --a-text-tertiary: #5c5f66;
+  --a-accent-text: #a8400c;                       /* text step of the accent: AA on white and on the grey fill */
+  --a-violator: var(--a-link);                    /* sale prices and deal badges */
+  --a-bg: #ffffff;
+  --a-bg-alt: #f2f3f4;
+  --a-bg-elevated: #ffffff;
+  --a-fill-quaternary: #f2f3f4;                   /* chips */
+  --a-hairline: #dadce0;
+  --a-blue: #e8590c;                              /* signal orange, ink text 5.2:1 (white fails) */
+  --a-blue-hover: #ee6418;
+  --a-on-accent: #121212;
+  --a-shadow-hover: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --a-shadow-float: 0 8px 24px rgba(0, 0, 0, 0.12);   /* popovers, drawers */
+
+  --a-nav-bg: #ffffff;
+  --a-nav-text: var(--a-text);
+  --a-nav-blur: none;
+  --a-nav-h: 64px;                                /* + optional 40px chip row */
+
+  --a-radius-tile: 8px;
+  --a-radius-card: 8px;                           /* inputs; images inside cards stay square */
+  --a-radius-button: 999px;
+  --a-button-h: 48px; --a-button-pad: 0 24px; --a-button-size: 16px; --a-button-weight: 700; --a-button-track: 0;
+  --a-button2-bg: #ffffff;
+  --a-button2-text: var(--a-text);
+  --a-button2-border: var(--a-text);
+  --a-button2-hover-bg: var(--a-bg-alt);
+  --a-button2-hover-text: var(--a-text);
+  --a-tile-bg: var(--a-bg-elevated);
+  --a-tile-bg-alt: var(--a-bg-elevated);
+  --a-tile-border: 1px solid var(--a-hairline);
+
+  --a-content: 960px;
+  --a-content-wide: 1600px;
+  --a-section-pad: clamp(3rem, 2.296rem + 3.005vw, 5rem);         /* 48 dense -> 80 campaign */
+  --a-tile-pad: 16px;
+  --a-bento-gap: 16px;
+  --a-tile-gap: 16px;
+  --a-gutter: max(clamp(1.5rem, 1.148rem + 1.502vw, 2.5rem), env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
+
+  --a-ease: cubic-bezier(0, 0, 0.2, 1);           /* ease-out; drawers 240ms cubic-bezier(.4,0,.2,1) */
+  --a-dur: 0.16s;
+  --a-reveal-rise: 8px; --a-reveal-dur: 0.24s;
+}
+
+.gnav { border-bottom: 1px solid var(--a-hairline); }
+.a-chip { display: inline-flex; align-items: center; min-height: 36px; padding: 0 16px; border: 0; border-radius: 999px;
+  background: var(--a-fill-quaternary); color: var(--a-text); font: inherit; font-size: 14px; font-weight: 500; position: relative; }
+.a-chip::before { content: ""; position: absolute; inset: min(0px, calc((100% - var(--a-hit)) / 2)); }
+.a-chip[aria-pressed="true"] { background: var(--a-text); color: var(--a-bg); }
+.a-price { font-size: clamp(1.25rem, 1.162rem + 0.3756vw, 1.5rem); font-weight: 700; font-variant-numeric: tabular-nums; }
+.a-price.is-sale { color: var(--a-violator); }
+a.a-tile:hover { box-shadow: var(--a-shadow-hover); text-decoration: none; }

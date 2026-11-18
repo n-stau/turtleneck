@@ -1,0 +1,77 @@
+/* turtleneck preset: journey (travel, booking, hospitality). Load AFTER tokens.css. Light only.
+   Blend of 5 reference sites (research notes kept outside the skill).
+   Font (free, optional; the fallback stack works): <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap"> */
+
+:root, :root[data-theme] { color-scheme: light; }
+:root {
+  --a-font: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --a-weight-display: 700;
+  --a-body-size: 1rem; --a-body-lh: 1.45; --a-body-track: 0;
+  --a-size-hero: clamp(2rem, 1.736rem + 1.127vw, 2.75rem);        /* 32 -> 44 */
+  --a-size-headline: clamp(1.625rem, 1.537rem + 0.376vw, 2rem);   /* 26 -> 32 */
+  --a-size-section: clamp(1.25rem, 1.162rem + 0.376vw, 1.5rem);   /* 20 -> 24 */
+  --a-size-tile: 1rem;                                            /* card titles 16 */
+  --a-size-subhead: 1.125rem;
+  --a-lh-display: 1.15; --a-track-display: 0;
+  --a-eyebrow-size: 0.875rem; --a-eyebrow-weight: 600; --a-eyebrow-track: 0; --a-eyebrow-color: var(--a-text-secondary);
+  --a-intro-size: 1.125rem; --a-intro-weight: 400; --a-intro-color: var(--a-text-secondary);
+
+  --a-text: #1d1e24;
+  --a-text-secondary: #6a6c73;
+  --a-text-tertiary: #6a6c73;
+  --a-link: #3439D6;
+  --a-accent-text: #c2362c;                       /* coral as text: the darker step passes AA */
+  --a-violator: var(--a-accent-text);
+  --a-green: #1e7a4c;
+  --a-bg: #ffffff;
+  --a-bg-alt: #f5f5f4;
+  --a-bg-elevated: #ffffff;
+  --a-fill-quaternary: #ebebea;
+  --a-hairline: #e3e3e3;
+  --a-blue: #f45d52;                              /* coral accent: search submit, favourites, key badges only */
+  --a-blue-hover: #f6766d;
+  --a-on-accent: #1d1e24;                         /* ink text on coral; white only for icons */
+  --a-button-bg: #1d1e24;                         /* primary action is an ink pill */
+  --a-button-hover-bg: #34353d;
+  --a-button-text: #ffffff;
+  --a-focus: var(--a-link);
+
+  --a-nav-bg: #ffffff;
+  --a-nav-text: var(--a-text);
+  --a-nav-blur: none;
+  --a-nav-h: 72px;
+
+  --a-radius-tile: 16px;
+  --a-radius-card: 12px;                          /* inputs, chips */
+  --a-radius-button: 9999px;
+  --a-button-h: 48px; --a-button-pad: 0 24px; --a-button-size: 16px; --a-button-weight: 600; --a-button-track: 0;
+  --a-button2-text: var(--a-text);
+  --a-button2-border: var(--a-text);
+  --a-button2-hover-bg: var(--a-bg-alt);
+  --a-button2-hover-text: var(--a-text);
+  --a-tile-bg: var(--a-bg-elevated);
+  --a-tile-bg-alt: var(--a-bg-elevated);
+  --a-tile-shadow: 0 2px 8px rgba(16, 18, 24, 0.06);
+  --a-shadow-float: 0 4px 24px rgba(16, 18, 24, 0.1);   /* search bar, popovers */
+  --a-shadow-hover: 0 6px 20px rgba(16, 18, 24, 0.1);
+
+  --a-content: 1200px;
+  --a-content-wide: 1200px;
+  --a-section-pad: clamp(2rem, 1.648rem + 1.502vw, 3rem);         /* 32 -> 48 */
+  --a-tile-pad: 16px;
+  --a-bento-gap: clamp(1rem, 0.824rem + 0.751vw, 1.5rem);
+  --a-tile-gap: var(--a-bento-gap);
+  --a-gutter: max(clamp(1rem, 0.648rem + 1.502vw, 1.5rem), env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
+
+  --a-ease: cubic-bezier(0.2, 0, 0, 1);
+  --a-dur: 0.2s;
+  --a-reveal-rise: 12px; --a-reveal-dur: 0.4s;
+}
+
+.a-button-accent { background: var(--a-blue); color: var(--a-on-accent); }
+.a-button-accent:hover { background: var(--a-blue-hover); }
+a.a-tile { transition: box-shadow 0.3s var(--a-ease); }
+a.a-tile:hover { box-shadow: var(--a-shadow-hover); text-decoration: none; }
+a.a-tile img { transition: transform 0.3s var(--a-ease); }
+a.a-tile:hover img { transform: scale(1.03); }
+@media (prefers-reduced-motion: reduce) { a.a-tile:hover img { transform: none; } }

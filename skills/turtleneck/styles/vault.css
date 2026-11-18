@@ -1,0 +1,71 @@
+/* turtleneck preset: vault (finance: banks, cards, payments, insurance). Load AFTER tokens.css. Light default with one
+   navy band; dark mode (navy) follows the OS. Blend of 5 reference sites (research notes kept outside the skill).
+   Values are light-dark(light, dark). Fonts (free, optional; the fallback stack works):
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"> */
+
+:root {
+  --a-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --a-font-display: "Manrope", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --a-weight-display: 600;
+  --a-body-size: 1rem; --a-body-lh: 1.55; --a-body-track: 0;
+  --a-size-hero: clamp(2.5rem, 2.148rem + 1.502vw, 3.5rem);       /* 40 -> 56 */
+  --a-size-headline: clamp(2rem, 1.736rem + 1.127vw, 2.75rem);    /* 32 -> 44 */
+  --a-size-section: clamp(1.5rem, 1.324rem + 0.7512vw, 2rem);     /* 24 -> 32 */
+  --a-size-tile: 1.25rem;                                         /* 20 */
+  --a-size-subhead: clamp(1.125rem, 1.081rem + 0.1878vw, 1.25rem);
+  --a-lh-display: 1.1; --a-track-display: -0.02em;
+  --a-eyebrow-size: 0.8125rem; --a-eyebrow-weight: 600; --a-eyebrow-track: 0.04em; --a-eyebrow-case: uppercase;
+  --a-eyebrow-color: var(--a-text-secondary);
+  --a-intro-size: clamp(1.125rem, 1.081rem + 0.1878vw, 1.25rem); --a-intro-weight: 400; --a-intro-color: var(--a-text-secondary);
+
+  --a-text: light-dark(#121a3a, #eef1f7);         /* deep navy ink */
+  --a-text-secondary: light-dark(#4a5163, #b7bfd0);
+  --a-text-tertiary: light-dark(#5e6573, #9aa3b8);
+  --a-accent-text: light-dark(#1f6fb8, #7cb2ea);
+  --a-violator: var(--a-link);
+  --a-green: light-dark(#1e7f4f, #5fcf94);        /* data only: gains, approvals */
+  --a-red: light-dark(#c23a3a, #ff8a80);          /* data only: losses, errors */
+  --a-bg: light-dark(#ffffff, #121a3a);           /* the dark half is the navy band */
+  --a-bg-alt: light-dark(#f3f5f7, #0c1330);
+  --a-bg-elevated: light-dark(#ffffff, #1a2450);
+  --a-fill-quaternary: light-dark(#e9edf2, #232e5c);
+  --a-hairline: light-dark(#e1e4ea, rgba(255, 255, 255, 0.14));
+  --a-blue: #1f6fb8;                              /* trust blue, white text 5.2:1 */
+  --a-blue-hover: #1d65a8;
+  --a-on-accent: #ffffff;
+
+  --a-nav-bg: var(--a-bg);
+  --a-nav-text: var(--a-text);
+  --a-nav-blur: none;
+  --a-nav-h: 72px;
+
+  --a-radius-tile: 16px;                          /* cards; feature panels and hero media 24px */
+  --a-radius-card: 10px;                          /* inputs */
+  --a-radius-button: 999px;
+  --a-button-h: 48px; --a-button-pad: 0 24px; --a-button-size: 16px; --a-button-weight: 600; --a-button-track: 0;
+  --a-button2-text: var(--a-text);
+  --a-button2-border: var(--a-text);
+  --a-button2-hover-bg: var(--a-fill-quaternary);
+  --a-button2-hover-text: var(--a-text);
+  --a-tile-bg: var(--a-bg-elevated);
+  --a-tile-bg-alt: var(--a-bg-elevated);
+  --a-tile-border: 1px solid var(--a-hairline);
+
+  --a-content: 720px;
+  --a-content-wide: 1280px;
+  --a-section-pad: clamp(3rem, 2.296rem + 3.005vw, 5rem);         /* 48 comparison -> 80 marketing */
+  --a-tile-pad: 24px;
+  --a-bento-gap: 24px;
+  --a-tile-gap: 24px;
+  --a-gutter: max(clamp(1.5rem, 0.972rem + 2.254vw, 3rem), env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
+
+  --a-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --a-dur: 0.2s;
+  --a-reveal-rise: 12px; --a-reveal-dur: 0.5s;
+}
+
+.gnav { border-bottom: 1px solid var(--a-hairline); }
+.a-button-secondary { border-width: 1.5px; }
+:focus-visible { outline-offset: 2px; }
+.a-raised { box-shadow: 0 8px 28px light-dark(rgba(18, 26, 58, 0.1), rgba(0, 0, 0, 0.4)); }   /* modal, sticky summary */
+.a-legal { font-size: 0.75rem; line-height: 1.5; color: var(--a-text-secondary); }       /* fine print, still AA */

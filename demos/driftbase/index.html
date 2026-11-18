@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Driftbase: serverless Postgres that branches</title>
+<meta name="description" content="Driftbase is serverless Postgres for developers: instant branches, an API for every table, a CLI and usage-based pricing.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Inter+Tight:wght@400..500&family=JetBrains+Mono&display=swap">
+<link rel="stylesheet" href="../../skills/turtleneck/tokens.css">
+<link rel="stylesheet" href="../../skills/turtleneck/styles/devtool.css">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<a class="sr-skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="a-container-wide nav-in">
+    <a class="brand" href="#top" aria-label="Driftbase home">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="6" fill="#10b981"/><path d="M8 5v14M8 11c0-3 8-1 8-6M8 15c0 2 3 2 8 0" stroke="#0b1f19" stroke-width="2" stroke-linecap="round"/></svg>
+      Driftbase
+    </a>
+    <nav aria-label="Primary"><ul class="nav-links">
+      <li><a href="#branching">Branching</a></li><li><a href="#api">API</a></li><li><a href="#cli">CLI</a></li>
+      <li><a href="#usage">Usage</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#">Docs</a></li>
+    </ul></nav>
+    <div class="nav-end">
+      <a class="signin" href="#">Sign in</a>
+      <a class="a-button" href="#pricing">Start free</a>
+      <button class="burger" type="button" popovertarget="menu" aria-label="Open menu"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 6h14M3 14h14"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<div class="menu" id="menu" popover>
+  <button class="menu-x" type="button" popovertarget="menu" popovertargetaction="hide" aria-label="Close menu">&times;</button>
+  <a href="#branching">Branching</a><a href="#api">API</a><a href="#cli">CLI</a><a href="#usage">Usage</a><a href="#pricing">Pricing</a><a href="#">Docs</a>
+  <a class="a-button" href="#pricing">Start free</a>
+</div>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="a-container-wide">
+      <p class="a-eyebrow">Serverless Postgres for developers</p>
+      <h1 class="a-hero a-two-tone">Postgres that branches like code. <span class="a-mute">Billed like a function.</span></h1>
+      <p class="a-intro">Branch a database in 1.4 seconds, get an API for every table, and pay only for the compute you use. Real Postgres 17, no servers to size.</p>
+      <div class="a-buttons"><a class="a-button" href="#pricing">Start free</a><a class="a-button a-button-secondary" href="#cli">Read the quickstart</a></div>
+      <p class="hero-install"><b>$</b>npm i -g @driftbase/cli</p>
+
+      <div class="a-tile frame hero-frame" style="max-width:56rem">
+        <div class="frame-bar"><span>~/orders-api</span><span>zsh</span></div>
+        <pre tabindex="0"><code><span class="p">$</span> <span class="w">driftbase branch create preview-142 --from main</span>
+<span class="ok">&#10003;</span> branch <span class="w">preview-142</span> ready in <span class="w">1.4s</span> <span class="d">(copy-on-write, 0 B copied)</span>
+
+<span class="p">$</span> <span class="w">driftbase url preview-142</span>
+postgres://app@preview-142.eu-1.driftbase.example/orders
+
+<span class="p">$</span> <span class="w">psql "$(driftbase url)" -c "select count(*) from orders"</span>
+ count
+-------
+ 48210
+
+<span class="p">$</span> <span class="w">driftbase branch delete preview-142</span>
+<span class="ok">&#10003;</span> deleted. compute billed: <span class="w">0.004 h</span></code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="a-section-block a-alt" aria-label="Numbers">
+    <div class="a-container-wide stats">
+      <div class="stat"><b>1.4 s</b><span>median time to create a branch of a 500 GB database</span></div>
+      <div class="stat"><b>120 ms</b><span>cold start from zero compute to first query</span></div>
+      <div class="stat"><b>99.99%</b><span>monthly uptime on Pro and Scale plans</span></div>
+      <div class="stat"><b>$0</b><span>for compute while a database is idle</span></div>
+    </div>
+  </section>
+
+  <section class="a-section-block a-dark" id="branching">
+    <div class="a-container-wide">
+      <div class="split">
+        <div class="lead">
+          <p class="a-eyebrow">Branching</p>
+          <h2 class="a-headline a-two-tone">A full copy of production per pull request. <span class="a-mute">No copying.</span></h2>
+          <p class="a-intro">Branches share storage with their parent and only pay for what changes. Test a migration on real data, then throw the branch away.</p>
+          <ul class="ticks">
+            <li><strong>Copy-on-write.</strong> A 500 GB branch costs 0 B until you write to it.</li>
+            <li><strong>Schema diff.</strong> See what a migration changes before it reaches main.</li>
+            <li><strong>Reset in one command.</strong> Rewind any branch to its parent in under 2 seconds.</li>
+          </ul>
+        </div>
+        <div class="a-tile branches" role="img" aria-label="Branch tree: main with staging and two preview branches under it">
+          <div class="branches-head"><b>orders-api</b><span>4 branches, 612 GB logical, 38 GB stored</span></div>
+          <ul class="tree" aria-hidden="true">
+            <li class="prod" style="--lvl:0"><span class="n">main<span class="badge live">production</span></span><span class="m">Postgres 17, 2 to 8 CU autoscale</span><span class="t">38.0 GB</span></li>
+            <li style="--lvl:1"><span class="n">staging</span><span class="m">from main, synced nightly</span><span class="t">+1.2 GB</span></li>
+            <li style="--lvl:2"><span class="n">pr-318-add-index</span><span class="m">from staging, 2 hours ago</span><span class="t">+14 MB</span></li>
+            <li style="--lvl:1"><span class="n">preview-142</span><span class="m">from main, 9 minutes ago</span><span class="t">+0 B</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="a-section-block" id="api">
+    <div class="a-container-wide">
+      <div class="lead">
+        <p class="a-eyebrow">Instant APIs</p>
+        <h2 class="a-headline a-two-tone">Create a table. <span class="a-mute">Query it over HTTPS.</span></h2>
+        <p class="a-intro">Every table and view gets a typed REST endpoint and a realtime stream, with row-level security from your Postgres policies. Nothing to deploy.</p>
+      </div>
+      <div class="pair">
+        <div class="a-tile frame">
+          <div class="frame-bar"><span>migrations/003_orders.sql</span><span>SQL</span></div>
+          <pre tabindex="0"><code><span class="k">create table</span> orders (
+  id          <span class="d">bigint generated always as identity primary key</span>,
+  customer_id <span class="d">uuid not null</span>,
+  total_cents <span class="d">integer not null</span>,
+  status      <span class="d">text not null default</span> <span class="ok">'open'</span>
+);
+
+<span class="k">create policy</span> own_orders <span class="k">on</span> orders
+  <span class="k">using</span> (customer_id = auth.uid());</code></pre>
+        </div>
+        <div class="a-tile frame">
+          <div class="frame-bar"><span>GET /rest/v1/orders</span><span>200 OK, 18 ms</span></div>
+          <pre tabindex="0"><code><span class="p">$</span> <span class="w">curl "$DRIFTBASE_URL/rest/v1/orders?status=eq.open&amp;limit=2" \</span>
+<span class="w">    -H "Authorization: Bearer $TOKEN"</span>
+
+[
+  { <span class="k">"id"</span>: 48209, <span class="k">"total_cents"</span>: 4200, <span class="k">"status"</span>: <span class="ok">"open"</span> },
+  { <span class="k">"id"</span>: 48210, <span class="k">"total_cents"</span>: 1850, <span class="k">"status"</span>: <span class="ok">"open"</span> }
+]</code></pre>
+        </div>
+      </div>
+      <div class="facts">
+        <div><b>18 ms</b><span>p95 latency for a keyed read, same region</span></div>
+        <div><b>Typed</b><span>OpenAPI spec and TypeScript types generated per branch</span></div>
+        <div><b>Realtime</b><span>Row changes streamed over WebSocket, no extra setup</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="a-section-block a-alt" id="cli">
+    <div class="a-container-wide">
+      <div class="split">
+        <div class="lead">
+          <p class="a-eyebrow">CLI</p>
+          <h2 class="a-headline a-two-tone">Everything in the dashboard, <span class="a-mute">from your terminal.</span></h2>
+          <p class="a-intro">One binary, no daemon. Scriptable output with <span class="a-mono">--json</span> on every command, ready for CI.</p>
+          <dl class="cmds">
+            <div><dt>driftbase branch create</dt><dd>Fork any branch, or a point in time up to 7 days back.</dd></div>
+            <div><dt>driftbase migrate</dt><dd>Apply SQL migrations to a branch, with a dry run.</dd></div>
+            <div><dt>driftbase dev</dt><dd>Local proxy to your branch, with auto-reconnect.</dd></div>
+            <div><dt>driftbase logs --follow</dt><dd>Tail queries, errors and compute events.</dd></div>
+          </dl>
+        </div>
+        <div class="a-tile frame">
+          <div class="frame-bar"><span>.github/workflows/preview.yml</span><span>CI</span></div>
+          <pre tabindex="0"><code><span class="c"># one database per pull request</span>
+<span class="k">- run:</span> driftbase branch create pr-${{ github.event.number }} --from main
+<span class="k">- run:</span> driftbase migrate --branch pr-${{ github.event.number }}
+<span class="d">  Applying 003_orders.sql ... </span><span class="ok">done</span>
+<span class="d">  Applying 004_indexes.sql ... </span><span class="ok">done</span>
+<span class="k">- run:</span> npm test
+<span class="k">- if:</span> always()
+  <span class="k">run:</span> driftbase branch delete pr-${{ github.event.number }}</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="a-section-block" id="usage">
+    <div class="a-container-wide">
+      <div class="lead center-lead">
+        <p class="a-eyebrow">Usage-based pricing</p>
+        <h2 class="a-headline a-two-tone">Compute scales to zero. <span class="a-mute">So does the bill.</span></h2>
+        <p class="a-intro">You pay for compute-hours, storage and egress. The dashboard shows each one live, per branch, before the invoice does.</p>
+      </div>
+      <div class="a-tile dash" style="margin-top:clamp(2.5rem,1.5rem + 4vw,4rem)" role="group" aria-label="Usage dashboard example">
+        <div class="dash-bar"><b>orders-api / Usage</b><span>Nov 1 to Nov 18, all branches</span></div>
+        <div class="dash-body">
+          <div class="kpis">
+            <div class="kpi"><small>Compute</small><b>212 h</b><i>0.9 CU average</i></div>
+            <div class="kpi"><small>Storage</small><b>38 GB</b><i>of 612 GB logical</i></div>
+            <div class="kpi"><small>Egress</small><b>96 GB</b><i>12 GB included</i></div>
+            <div class="kpi"><small>Requests</small><b>4.1 M</b><i>API, REST and realtime</i></div>
+          </div>
+          <div>
+            <div class="chart" role="img" aria-label="Daily compute hours for 18 days, peaking mid-month at about 16 hours">
+              <span style="--h:22%"></span><span style="--h:30%"></span><span style="--h:26%"></span><span style="--h:34%"></span><span style="--h:18%"></span><span style="--h:12%"></span><span style="--h:20%"></span><span style="--h:42%"></span><span style="--h:56%"></span><span style="--h:48%"></span><span style="--h:64%"></span><span style="--h:88%"></span><span style="--h:72%"></span><span style="--h:38%"></span><span style="--h:30%"></span><span style="--h:52%"></span><span style="--h:60%"></span><span class="now" style="--h:46%"></span>
+            </div>
+            <div class="chart-ax" style="margin-top:8px"><span>Nov 1</span><span>Daily compute hours</span><span>Nov 18</span></div>
+          </div>
+          <div class="bill"><span>Estimated invoice this month</span><b>$27.18</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="a-section-block a-alt" id="pricing">
+    <div class="a-container-wide">
+      <div class="lead center-lead">
+        <p class="a-eyebrow">Pricing</p>
+        <h2 class="a-headline a-two-tone">Start at zero. <span class="a-mute">Pay as you grow.</span></h2>
+      </div>
+      <div class="plans">
+        <article class="a-tile plan">
+          <h3>Hobby</h3><p class="who">For side projects and learning.</p>
+          <p class="price">$0<small>forever</small></p>
+          <ul class="ticks"><li>1 project, 10 branches</li><li>50 compute-hours and 2 GB storage</li><li>Pauses after 5 minutes idle</li><li>Community support</li></ul>
+          <a class="a-button a-button-secondary" href="#">Start free</a>
+        </article>
+        <article class="a-tile plan rec">
+          <h3>Pro <span class="badge">Recommended</span></h3><p class="who">For teams shipping a product.</p>
+          <p class="price">$0<small>+ usage</small></p>
+          <ul class="ticks"><li>Unlimited projects and branches</li><li>Autoscaling up to 16 CU</li><li>7-day point-in-time restore</li><li>99.99% uptime SLA</li></ul>
+          <a class="a-button" href="#">Start with Pro</a>
+        </article>
+        <article class="a-tile plan">
+          <h3>Scale</h3><p class="who">For regulated and high-traffic workloads.</p>
+          <p class="price">Custom</p>
+          <ul class="ticks"><li>Autoscaling up to 128 CU</li><li>30-day restore, private networking</li><li>SSO, audit log, SOC 2 report</li><li>Named support engineer</li></ul>
+          <a class="a-button a-button-secondary" href="#">Talk to sales</a>
+        </article>
+      </div>
+      <table class="rates">
+        <caption>Usage rates on Pro</caption>
+        <thead><tr><th scope="col">Resource</th><th scope="col" class="r">Rate</th><th scope="col" class="r">Included</th></tr></thead>
+        <tbody>
+          <tr><td>Compute<span class="mut">per compute-hour, billed per second</span></td><td class="r">$0.09</td><td class="r">100 h</td></tr>
+          <tr><td>Storage<span class="mut">per GB-month, branches share pages</span></td><td class="r">$0.25</td><td class="r">10 GB</td></tr>
+          <tr><td>Egress<span class="mut">per GB out</span></td><td class="r">$0.08</td><td class="r">12 GB</td></tr>
+          <tr><td>API requests<span class="mut">per million</span></td><td class="r">$0.50</td><td class="r">5 M</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="a-section-block close">
+    <div class="a-container-wide">
+      <h2 class="a-headline">Your next migration deserves a safe place to fail.</h2>
+      <p class="a-intro" style="max-width:34rem;margin:16px auto 0">Create a project in 30 seconds. No card needed on Hobby.</p>
+      <div class="a-buttons"><a class="a-button a-button-large" href="#pricing">Start free</a><a class="a-button a-button-large a-button-secondary" href="#">Read the docs</a></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="a-container-wide">
+    <div class="foot-top">
+      <div>
+        <a class="brand" href="#top"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="6" fill="#10b981"/><path d="M8 5v14M8 11c0-3 8-1 8-6M8 15c0 2 3 2 8 0" stroke="#0b1f19" stroke-width="2" stroke-linecap="round"/></svg>Driftbase</a>
+        <p>Serverless Postgres for developers. Driftbase is a fictional product for a design demo.</p>
+      </div>
+      <details open><summary>Product</summary><ul><li><a href="#branching">Branching</a></li><li><a href="#api">Instant APIs</a></li><li><a href="#cli">CLI</a></li><li><a href="#pricing">Pricing</a></li></ul></details>
+      <details open><summary>Developers</summary><ul><li><a href="#">Documentation</a></li><li><a href="#">API reference</a></li><li><a href="#">Changelog</a></li><li><a href="#">Status</a></li></ul></details>
+      <details open><summary>Company</summary><ul><li><a href="#">About</a></li><li><a href="#">Careers</a></li><li><a href="#">Blog</a></li><li><a href="#">Contact</a></li></ul></details>
+      <details open><summary>Legal</summary><ul><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li><li><a href="#">Security</a></li><li><a href="#">DPA</a></li></ul></details>
+    </div>
+    <div class="foot-legal"><span>&copy; 2026 Driftbase Example Co.</span><span>All systems operational</span></div>
+  </div>
+</footer>
+
+<script>
+  // Footer columns: always open on wide screens, accordions on phones. Menu closes on link click.
+  const mq = matchMedia('(max-width: 834px)'), ds = document.querySelectorAll('.foot details');
+  const sync = () => ds.forEach(d => d.open = !mq.matches ? true : d.open && false);
+  sync(); mq.addEventListener('change', sync);
+  ds.forEach(d => d.querySelector('summary').addEventListener('click', e => { if (!mq.matches) e.preventDefault(); }));
+  document.querySelectorAll('#menu a').forEach(a => a.addEventListener('click', () => document.getElementById('menu').hidePopover()));
+</script>
+</body>
+</html>

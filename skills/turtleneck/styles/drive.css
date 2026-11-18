@@ -1,0 +1,70 @@
+/* turtleneck preset: drive (automotive, mobility). Load AFTER tokens.css. Light default with dark .a-dark scenes;
+   dark mode follows the OS. Blend of 5 reference sites (research notes kept outside the skill). Values are light-dark(light, dark).
+   Font (free, optional; the fallback stack works):
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500&display=swap"> */
+
+:root {
+  --a-font: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --a-weight-display: 400;                        /* light headings: size and image carry the weight */
+  --a-body-size: 1rem; --a-body-lh: 1.6; --a-body-track: 0;
+  --a-size-hero: clamp(2.75rem, 1.958rem + 3.38vw, 5rem);         /* 44 -> 80, white on the photo */
+  --a-size-headline: clamp(2.25rem, 1.81rem + 1.878vw, 3.5rem);   /* 36 -> 56 */
+  --a-size-section: clamp(1.75rem, 1.574rem + 0.7512vw, 2.25rem); /* 28 -> 36 */
+  --a-size-tile: clamp(1.25rem, 1.206rem + 0.1878vw, 1.375rem);   /* 20 -> 22, 500 */
+  --a-size-subhead: clamp(1.125rem, 1.059rem + 0.2817vw, 1.312rem);
+  --a-lh-display: 1.1; --a-track-display: 0;
+  --a-eyebrow-size: 0.8125rem; --a-eyebrow-weight: 500; --a-eyebrow-track: 0; --a-eyebrow-color: var(--a-text-secondary);
+  --a-intro-size: clamp(1.125rem, 1.059rem + 0.2817vw, 1.312rem); --a-intro-weight: 400; --a-intro-color: var(--a-text-secondary);
+
+  --a-text: light-dark(#0e0f11, #f4f5f7);
+  --a-text-secondary: light-dark(#3a3d42, #c3c6cc);
+  --a-text-tertiary: light-dark(#6a6d73, #989ba1);
+  --a-accent-text: light-dark(#4a6fa5, #8eaad6);
+  --a-violator: var(--a-link);
+  --a-bg: light-dark(#ffffff, #0b0c0e);           /* dark half = the dark scenes */
+  --a-bg-alt: light-dark(#f3f3f4, #16171a);
+  --a-bg-elevated: light-dark(#ffffff, #1c1d21);
+  --a-fill-quaternary: light-dark(#e8e8ea, #26272b);
+  --a-hairline: light-dark(#dcdddf, #2e3034);
+  --a-blue: #4a6fa5;                              /* steel blue, white text 5.1:1 */
+  --a-blue-hover: #3467a1;
+  --a-on-accent: #ffffff;
+  --a-scrim: linear-gradient(to top, rgba(11, 12, 14, 0.8) 0%, rgba(11, 12, 14, 0.25) 55%, rgba(11, 12, 14, 0.45) 100%);
+
+  --a-nav-bg: var(--a-bg);                        /* transparent over the hero (recipes), solid once scrolled */
+  --a-nav-text: var(--a-text);
+  --a-nav-blur: none;
+  --a-nav-h: 72px;
+
+  --a-radius-tile: 6px;
+  --a-radius-card: 6px;                           /* full-bleed media stays square */
+  --a-radius-button: 4px;
+  --a-button-h: 48px; --a-button-pad: 0 28px; --a-button-size: 15px; --a-button-weight: 500; --a-button-track: 0;
+  --a-button2-text: currentColor;
+  --a-button2-border: currentColor;
+  --a-button2-hover-bg: color-mix(in srgb, currentColor 10%, transparent);
+  --a-button2-hover-text: currentColor;
+  --a-tile-bg: var(--a-bg-alt);
+  --a-tile-bg-alt: var(--a-bg);
+
+  --a-content: 640px;                             /* paragraphs */
+  --a-content-wide: 1200px;                       /* text grids; media runs to 1440 or full-bleed */
+  --a-section-pad: clamp(4rem, 3.296rem + 3.005vw, 6rem);         /* 64 -> 96 */
+  --a-tile-pad: clamp(1.5rem, 1.324rem + 0.7512vw, 2rem);         /* 24 -> 32 */
+  --a-bento-gap: clamp(1rem, 0.8239rem + 0.7512vw, 1.5rem);       /* 16 -> 24 */
+  --a-tile-gap: 16px;
+
+  --a-stats-dir: column-reverse; --a-stats-weight: 300;   /* .a-stats: light spec numeral over its label */
+  --a-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --a-dur: 0.3s;
+  --a-reveal-rise: 24px; --a-reveal-dur: 0.8s;    /* slow, never bouncy */
+}
+
+.a-tile-head { font-weight: 500; }
+.a-buttons > .a-button { min-width: min(100%, 15rem); }           /* CTA pairs at equal width */
+.gnav.over-hero:not(.is-stuck) { color-scheme: dark; color: var(--a-text); }   /* light nav text over the photo */
+.a-scene { min-height: 100svh; display: grid; align-content: end; padding: calc(var(--a-nav-h) + 48px) var(--a-gutter) clamp(3rem, 2rem + 4vw, 6rem);
+  color-scheme: dark; color: var(--a-text); background: var(--a-scrim), var(--scene, none) center / cover #0b0c0e; }
+.a-js .a-reveal :is(img, video) { scale: 1.05; transition: scale 1.2s var(--a-ease); }
+.a-js .a-reveal.is-in :is(img, video) { scale: 1; }
+@media (prefers-reduced-motion: reduce) { .a-js .a-reveal :is(img, video) { scale: 1; transition: none; } }

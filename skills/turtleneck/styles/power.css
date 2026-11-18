@@ -1,0 +1,67 @@
+/* turtleneck preset: power (gaming hardware). Load AFTER tokens.css. Dark hero by default, .a-light bands below.
+   Blend of 5 reference sites (research notes kept outside the skill). Values are light-dark(light, dark).
+   Font (free, optional; the fallback stack works): <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap"> */
+
+:root:not([data-theme="light"]) { color-scheme: dark; }
+:root {
+  --a-font: "Barlow", system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  --a-weight-display: 700;
+  --a-body-size: 1rem; --a-body-lh: 1.5; --a-body-track: 0;
+  --a-size-hero: clamp(2.25rem, 1.722rem + 2.254vw, 4rem);        /* 36 -> 64 */
+  --a-size-headline: clamp(1.75rem, 1.522rem + 0.976vw, 2.5rem);  /* 28 -> 40 */
+  --a-size-section: clamp(1.375rem, 1.262rem + 0.483vw, 1.75rem); /* 22 -> 28 */
+  --a-size-tile: clamp(1.125rem, 1.012rem + 0.483vw, 1.375rem);   /* 18 -> 22 */
+  --a-size-subhead: 1.125rem;
+  --a-lh-display: 1.1; --a-track-display: -0.01em;
+  --a-eyebrow-size: 0.8125rem; --a-eyebrow-weight: 600; --a-eyebrow-track: 0.08em; --a-eyebrow-case: uppercase;
+  --a-eyebrow-color: var(--a-link);
+  --a-intro-size: 1.125rem; --a-intro-weight: 400; --a-intro-color: var(--a-text-secondary);
+
+  --a-text: light-dark(#111418, #eef1f4);
+  --a-text-secondary: light-dark(#5b6470, #8c95a3);
+  --a-text-tertiary: light-dark(#5b6470, #8c95a3);
+  --a-accent-text: light-dark(#00798a, #19d3e6);  /* deeper teal on white for AA */
+  --a-violator: var(--a-link);
+  --a-green: #3bd671;                             /* status badges only */
+  --a-bg: light-dark(#ffffff, #07090c);
+  --a-bg-alt: light-dark(#f2f4f6, #14171c);
+  --a-bg-elevated: light-dark(#ffffff, #14171c);
+  --a-fill-quaternary: light-dark(#e3e7ec, #1e232a);
+  --a-hairline: light-dark(#e3e7ec, rgba(255, 255, 255, 0.12));
+  --a-blue: #19d3e6;                              /* arc cyan, dark text on it */
+  --a-blue-hover: #4fe0ee;
+  --a-on-accent: #07090c;
+
+  --a-nav-bg: #07090c;                            /* the bar stays dark over light bands */
+  --a-nav-text: #eef1f4;
+  --a-nav-blur: none;
+  --a-nav-h: 64px;
+
+  --a-radius-tile: 12px;
+  --a-radius-card: 8px;                           /* media */
+  --a-radius-button: 4px;
+  --a-button-pad: 0 22px; --a-button-size: 14px; --a-button-weight: 700; --a-button-track: 0.04em;
+  --a-button2-text: currentColor;
+  --a-button2-border: currentColor;
+  --a-button2-hover-bg: var(--a-fill-quaternary);
+  --a-button2-hover-text: var(--a-text);
+  --a-tile-bg: var(--a-bg-elevated);
+  --a-tile-bg-alt: var(--a-bg-elevated);
+  --a-tile-border: 1px solid var(--a-hairline);
+  --a-tile-shadow: 0 4px 12px light-dark(transparent, rgba(0, 0, 0, 0.35));
+
+  --a-content: 720px;
+  --a-content-wide: 1440px;
+  --a-section-pad: clamp(3rem, 2.472rem + 2.254vw, 4.5rem);       /* 48 -> 72 */
+  --a-tile-pad: clamp(1.25rem, 1.162rem + 0.376vw, 1.5rem);       /* 20 -> 24 */
+  --a-bento-gap: 16px;
+  --a-tile-gap: 16px;
+
+  --a-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --a-dur: 0.15s;
+  --a-reveal-rise: 16px; --a-reveal-dur: 0.4s;
+}
+
+.a-button { text-transform: uppercase; }
+a.a-tile:hover { border-color: color-mix(in srgb, var(--a-blue) 40%, transparent); text-decoration: none; }
+.gnav, .lnav { color-scheme: dark; }            /* nav and its menu stay dark over .a-light bands */

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Loopwave: listen together</title>
+<meta name="description" content="Loopwave is the music app where friends share live listening rooms and playlists. Free to start, Premium for more.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="../../skills/turtleneck/tokens.css">
+<link rel="stylesheet" href="../../skills/turtleneck/styles/vibe.css">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="logo" viewBox="0 0 32 32"><rect width="32" height="32" rx="10" fill="#ec4899"/><path d="M5 17c3-8 5-8 7 0s4 8 7 0 4-6 8-2" fill="none" stroke="#0e0e10" stroke-width="3" stroke-linecap="round"/></symbol></svg>
+
+<nav class="gnav" aria-label="Global">
+  <ul class="gnav-list">
+    <li class="mark-li" style="display:contents"><a class="mark" href="#top" aria-label="Loopwave home"><svg aria-hidden="true"><use href="#logo"/></svg>Loopwave</a></li>
+    <li class="gnav-link" style="display:contents"><a class="gnav-link" href="#rooms">Rooms</a></li>
+    <li class="gnav-link" style="display:contents"><a class="gnav-link" href="#features">Features</a></li>
+    <li class="gnav-link" style="display:contents"><a class="gnav-link" href="#plans">Plans</a></li>
+    <li style="display:contents"><a class="a-button nav-cta" href="#plans" style="margin-left:8px">Get app</a></li>
+    <li style="display:contents"><button class="gnav-burger" type="button" popovertarget="menu" aria-label="Menu"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M3 7h16M3 15h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></li>
+  </ul>
+</nav>
+<div class="gnav-flyout" id="menu" popover>
+  <button class="close" type="button" popovertarget="menu" popovertargetaction="hide" aria-label="Close menu"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M4 4l14 14M18 4L4 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  <ul><li><a href="#rooms">Rooms</a></li><li><a href="#features">Features</a></li><li><a href="#plans">Plans</a></li></ul>
+</div>
+
+<main id="top">
+<section class="hero">
+  <div class="a-container-wide hero-grid">
+    <div>
+      <h1 class="a-hero"><span>Press play.</span><span>Together.</span></h1>
+      <p class="a-intro">Open a live room, pass the aux and listen in sync with your friends. Wherever they are.</p>
+      <div class="a-buttons">
+        <a class="a-button" href="#plans">Start free</a>
+        <a class="a-button a-button-secondary" href="#rooms">Peek into a room</a>
+      </div>
+      <p class="a-caption">Free on iPhone and Android. Premium from $4.99 a month.</p>
+    </div>
+    <div class="stage">
+      <div class="phone" role="img" aria-label="Loopwave app showing a live room with four listeners and a track playing">
+        <div class="screen">
+          <span class="live">LIVE &middot; 4 listening</span>
+          <p class="room-title">Sunday slow burn</p>
+          <div class="cv c1 cover-big"></div>
+          <div class="track"><b>Paper Lanterns</b><span>Mira Vell</span></div>
+          <div class="bar"><i></i></div>
+          <div class="faces"><span class="face">JO</span><span class="face t2">AK</span><span class="face t3">SU</span><span class="face">+1</span><small>in sync</small></div>
+        </div>
+      </div>
+      <p class="chat b">this bridge though</p>
+      <p class="chat">adding it to our playlist</p>
+    </div>
+  </div>
+</section>
+
+<section class="a-section-block a-alt" id="rooms">
+  <div class="a-container-wide">
+    <div class="sec-head">
+      <div><p class="a-eyebrow">Live now</p><h2 class="a-headline">Rooms with the door open</h2></div>
+      <div class="paddles"><button class="paddle" type="button" aria-label="Scroll left" data-dir="-1">&#8249;</button><button class="paddle" type="button" aria-label="Scroll right" data-dir="1">&#8250;</button></div>
+    </div>
+    <div class="rail" id="rail" tabindex="0" aria-label="Live rooms">
+      <a href="#plans"><div class="cv c2"></div><b>Late bus home</b><small>12 listening</small><span class="live">LIVE</span></a>
+      <a href="#plans"><div class="cv c3"></div><b>Study loop</b><small>38 listening</small><span class="live">LIVE</span></a>
+      <a href="#plans"><div class="cv c4"></div><b>Friday warm-up</b><small>7 listening</small><span class="live">LIVE</span></a>
+      <a href="#plans"><div class="cv c5"></div><b>Rain on the roof</b><small>21 listening</small><span class="live">LIVE</span></a>
+      <a href="#plans"><div class="cv c6"></div><b>Group chat picks</b><small>5 listening</small><span class="live">LIVE</span></a>
+      <a href="#plans"><div class="cv c1"></div><b>Sunday slow burn</b><small>4 listening</small><span class="live">LIVE</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="a-section-block" id="features">
+  <div class="a-container-wide">
+    <div class="sec-head"><div><p class="a-eyebrow">Made for friends</p><h2 class="a-headline">One song. Everyone's ears.</h2></div></div>
+    <div class="bento">
+      <article class="a-tile bento-item wide">
+        <div><h3 class="a-tile-head">Live rooms</h3><p class="a-body" style="margin-top:10px">Everyone hears the same second of the same song, with a chat that reacts to the beat. Anyone you invite can add to the queue.</p></div>
+        <ul class="queue" aria-label="Example queue">
+          <li><span class="cv c4"></span><span>Glass Harbour</span><em>next</em></li>
+          <li><span class="cv c2"></span><span>Third Floor Windows</span><em>Ana</em></li>
+          <li><span class="cv c5"></span><span>Quiet Machines</span><em>Jo</em></li>
+        </ul>
+      </article>
+      <article class="a-tile bento-item"><h3 class="a-tile-head">Shared playlists</h3><p class="a-body">One list, every friend can add. See who added what.</p><p class="stat">8</p><p class="a-caption">friends per playlist, free</p></article>
+      <article class="a-tile bento-item"><h3 class="a-tile-head">Always in sync</h3><p class="a-body">Rooms stay together, even on bad Wi-Fi.</p><p class="stat">&lt;80ms</p><p class="a-caption">typical drift between listeners</p></article>
+      <article class="a-tile bento-item"><h3 class="a-tile-head">Reactions</h3><p class="a-body">Tap the waveform to react to the exact moment a song hits.</p><p class="stat">1 tap</p><p class="a-caption">to say what words cannot</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="a-section-block a-light">
+  <div class="a-container-wide">
+    <div class="sec-head"><div><p class="a-eyebrow">How it works</p><h2 class="a-headline">Three taps to a party</h2></div></div>
+    <ol class="steps">
+      <li><h3 class="a-tile-head">Open a room</h3><p>Name it, pick a first song.</p></li>
+      <li><h3 class="a-tile-head">Send the link</h3><p>Friends join from a message. No sign-up wall.</p></li>
+      <li><h3 class="a-tile-head">Keep the playlist</h3><p>Save the night as a shared playlist.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="a-section-block" id="plans">
+  <div class="a-container-wide">
+    <div class="sec-head"><div><p class="a-eyebrow">Plans</p><h2 class="a-headline">Free is real. Premium is more.</h2></div></div>
+    <div class="plans">
+      <article class="a-tile plan">
+        <span class="badge-spacer"></span>
+        <h3 class="a-tile-head">Free</h3><p class="for">For listening with a few friends.</p>
+        <p class="price">$0</p>
+        <ul><li>Join any live room</li><li>Host rooms of up to 8</li><li>Shared playlists</li><li>Shuffle play with ads</li><li class="no">Offline listening</li><li class="no">Lossless audio</li></ul>
+        <a class="a-button a-button-secondary" href="#">Start free</a>
+      </article>
+      <article class="a-tile plan">
+        <span class="badge">Most popular</span>
+        <h3 class="a-tile-head">Premium</h3><p class="for">For every night, every friend.</p>
+        <p class="price">$4.99<small> / month</small></p>
+        <ul><li>Rooms of up to 100</li><li>No ads, pick any song</li><li>Offline listening</li><li>Lossless audio</li><li>Room recordings and replays</li><li>Custom room themes</li></ul>
+        <a class="a-button" href="#">Try Premium free for 30 days</a>
+      </article>
+    </div>
+    <p class="a-caption" style="text-align:center;margin-top:24px">Cancel any time. Student and duo plans in the app.</p>
+  </div>
+</section>
+
+<section class="a-section-block a-alt cta">
+  <div class="a-container-wide">
+    <h2 class="a-hero">Your friends are already listening.</h2>
+    <div class="a-buttons"><a class="a-button a-button-large" href="#">Get Loopwave free</a></div>
+  </div>
+</section>
+</main>
+
+<footer class="gfoot">
+  <div class="a-container-wide">
+    <nav class="gfoot-cols" aria-label="Footer">
+      <details><summary>Product</summary><ul><li><a href="#rooms">Rooms</a></li><li><a href="#features">Features</a></li><li><a href="#plans">Plans</a></li></ul></details>
+      <details><summary>Company</summary><ul><li><a href="#">About</a></li><li><a href="#">Careers</a></li><li><a href="#">Press</a></li></ul></details>
+      <details><summary>Support</summary><ul><li><a href="#">Help center</a></li><li><a href="#">Safety</a></li><li><a href="#">Contact</a></li></ul></details>
+      <details><summary>Creators</summary><ul><li><a href="#">For artists</a></li><li><a href="#">Host a room</a></li><li><a href="#">Guidelines</a></li></ul></details>
+    </nav>
+    <div class="gfoot-legal"><span>&copy; 2026 Loopwave Inc. A fictional product.</span><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a></div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.gnav-flyout a').forEach(a => a.addEventListener('click', () => document.getElementById('menu').hidePopover()));
+  const rail = document.getElementById('rail');
+  document.querySelectorAll('.paddle').forEach(b => b.addEventListener('click', () => rail.scrollBy({ left: b.dataset.dir * rail.clientWidth * 0.8, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })));
+  const mq = matchMedia('(min-width: 734px)');
+  const sync = () => document.querySelectorAll('.gfoot details').forEach(d => d.open = mq.matches);
+  sync(); mq.addEventListener('change', sync);
+</script>
+</body>
+</html>

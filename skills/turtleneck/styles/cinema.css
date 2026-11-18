@@ -1,0 +1,73 @@
+/* turtleneck preset: cinema (streaming). Load AFTER tokens.css. Dark only.
+   Blend of 5 reference sites (research notes kept outside the skill).
+   Font (free, optional; the fallback stack works):
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700;800&display=swap"> */
+
+:root, :root[data-theme] { color-scheme: dark; }
+:root {
+  --a-font: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --a-weight-display: 800;                        /* hero + headline; section and row titles 700 (rule below) */
+  --a-body-size: 1rem; --a-body-lh: 1.5; --a-body-track: 0;
+  --a-size-hero: clamp(2.25rem, 1.81rem + 1.878vw, 3.5rem);       /* 36 -> 56 */
+  --a-size-headline: clamp(1.75rem, 1.486rem + 1.127vw, 2.5rem);  /* 28 -> 40 */
+  --a-size-section: clamp(1.25rem, 0.9859rem + 1.127vw, 2rem);    /* 20 -> 32 */
+  --a-size-tile: clamp(1.125rem, 1.081rem + 0.1878vw, 1.25rem);   /* row title 18 -> 20 */
+  --a-size-subhead: 1.125rem;
+  --a-lh-display: 1.1; --a-track-display: -0.01em;
+  --a-eyebrow-size: 0.875rem; --a-eyebrow-weight: 600; --a-eyebrow-track: 0; --a-eyebrow-color: var(--a-text-secondary);
+  --a-intro-size: 1.125rem; --a-intro-weight: 400; --a-intro-color: var(--a-text-secondary);
+
+  --a-text: #ffffff;
+  --a-text-secondary: #b4b6bd;
+  --a-text-tertiary: #8a8d97;
+  --a-link: var(--a-text);                        /* white and underlined, never colored */
+  --a-violator: var(--a-text);
+  --a-bg: #0b0c12;                                /* blue-black canvas */
+  --a-bg-alt: #1b1d25;                            /* panels: plans, FAQ */
+  --a-bg-elevated: #262935;
+  --a-fill-quaternary: rgba(255, 255, 255, 0.16);
+  --a-hairline: rgba(255, 255, 255, 0.12);
+  --a-blue: #5b5cff;                              /* electric indigo, primary action only; white text 4.75:1 */
+  --a-blue-hover: #4d4ef0;
+  --a-on-accent: #ffffff;
+  --a-accent-text: #9798ff;                       /* text step of the indigo; links stay white */
+  --a-focus: var(--a-accent-text);
+  --a-scrim: linear-gradient(to top, #0b0c12 0%, rgba(11, 12, 18, 0.6) 45%, rgba(11, 12, 18, 0) 100%);
+
+  --a-nav-bg: rgba(11, 12, 18, 0.95);             /* transparent over the hero (recipes), this once scrolled */
+  --a-nav-text: #ffffff;
+  --a-nav-blur: none;
+  --a-nav-h: 64px;
+
+  --a-radius-tile: 12px;                          /* promo cards, plan panels */
+  --a-radius-card: 8px;                           /* posters */
+  --a-radius-button: 8px;
+  --a-button-h: 52px; --a-button-pad: 0 28px; --a-button-size: 16px; --a-button-weight: 700; --a-button-track: 0.01em;
+  --a-button2-bg: var(--a-fill-quaternary);
+  --a-button2-text: var(--a-text);
+  --a-button2-border: transparent;
+  --a-button2-hover-bg: rgba(255, 255, 255, 0.24);
+  --a-button2-hover-text: var(--a-text);
+  --a-tile-bg: var(--a-bg-alt);
+  --a-tile-bg-alt: var(--a-bg-elevated);
+
+  --a-content: 720px;                             /* hero copy */
+  --a-content-wide: 1280px;
+  --a-section-pad: clamp(3rem, 2.472rem + 2.254vw, 4.5rem);       /* 48 -> 72 */
+  --a-tile-pad: 24px;
+  --a-bento-gap: 8px;                             /* poster rows */
+  --a-tile-gap: 16px;
+  --a-gutter: max(4vw, 16px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
+
+  --a-ease: cubic-bezier(0.42, 0, 0.58, 1);       /* ease-in-out */
+  --a-dur: 0.2s;
+  --a-reveal-rise: 0px; --a-reveal-dur: 0.4s;     /* fades, no rise */
+}
+
+.a-section, .a-tile-head { font-weight: 700; }
+:focus-visible { box-shadow: 0 0 0 5px rgba(91, 92, 255, 0.45); }   /* remote-friendly glow around the ring */
+.a-button-large { min-height: 60px; }
+p a:not(.a-button), .a-more { text-decoration: underline; text-underline-offset: 0.15em; }
+.a-rail > a img { transition: transform 0.25s var(--a-ease), box-shadow 0.25s var(--a-ease); }
+.a-rail > a:is(:hover, :focus-visible) img { transform: scale(1.04); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5); }
+@media (prefers-reduced-motion: reduce) { .a-rail > a img { transition: none; transform: none; } }

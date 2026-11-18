@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phone widths</title>
+<!-- Usage: serve the page and this file from one http root (same origin), open
+     test-widths.html?src=<page url>[&h=800][&full=1]
+     Shows the page at 320/375/414 side by side and reports horizontal overflow per width.
+     &h: iframe height (default 800). &full=1: each iframe grows to its document height (full-page phone screenshot);
+     elements sized to the viewport height (100svh heroes) are pinned to &h first, reveal content is shown.
+     Headless Chrome: --window-size=1440,1000 --virtual-time-budget=5000 (full=1: make the window as tall as the
+     tallest frame). Results: <pre id="report">, window.results, and body[data-done]. -->
+<style>
+  body { margin: 0; padding: 16px; font: 13px/1.4 system-ui, sans-serif; background: #e8e8ed; color: #1d1d1f; }
+  .row { display: flex; gap: 16px; align-items: flex-start; }
+  figure { margin: 0; }
+  figcaption { margin-bottom: 6px; font-weight: 600; }
+  figcaption.bad { color: #b00020; } figcaption.ok { color: #006b1b; }
+  iframe { display: block; border: 0; background: #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.2); }
+  pre { margin: 0 0 16px; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<pre id="report">Loading…</pre>
+<div class="row" id="row"></div>
+<script>
+  const q = new URLSearchParams(location.search), src = q.get('src'), h = +q.get('h') || 800, full = q.get('full') === '1';
+  const widths = [320, 375, 414], row = document.getElementById('row'), report = document.getElementById('report');
+  window.results = {};
+  const frames = (src ? widths : []).map(w => {
+    const fig = document.createElement('figure'), cap = document.createElement('figcaption'), f = document.createElement('iframe');
+    cap.textContent = w + 'px'; f.width = w; f.height = h; f.title = w + 'px'; f.src = src;
+    fig.append(cap, f); row.append(fig);
+    return { w, f, cap };
+  });
+
+  // Pin elements as tall as the viewport (100svh/100vh heroes) so a taller frame does not stretch them.
+  function pinViewportHeights(d) {
+    for (const el of d.body.querySelectorAll('*')) {
+      const cs = d.defaultView.getComputedStyle(el);
+      for (const p of ['min-height', 'height'])
+        if (Math.abs(parseFloat(cs[p]) - h) < 2) el.style.setProperty(p, h + 'px', 'important');
+    }
+  }
+
+  function measure({ w, f, cap }) {
+    let line;
+    try {
+      const d = f.contentDocument, root = d.documentElement;
+      if (!d.body) throw new Error('not loaded');
+      if (full) {
+        root.dataset.reveal = 'off';                 // tokens.css shows every .a-reveal
+        pinViewportHeights(d);
+        f.height = Math.max(h, root.scrollHeight);
+      }
+      const vw = root.clientWidth, sw = root.scrollWidth;
+      // shortcut: lists elements whose box passes the right edge, incl. ones inside deliberate scrollers; judge by eye.
+      const wide = [...d.body.querySelectorAll('*')].filter(el => el.getBoundingClientRect().right > vw + 1)
+        .slice(0, 5).map(el => el.tagName.toLowerCase() + (typeof el.className === 'string' && el.className.trim() ? '.' + el.className.trim().split(/\s+/).join('.') : ''));
+      line = `${w}px: ${sw > vw ? 'OVERFLOW' : 'ok'} (scrollWidth ${sw}, viewport ${vw}${full ? ', height ' + f.height : ''})` + (wide.length ? ' past edge: ' + wide.join(', ') : '');
+      cap.className = sw > vw ? 'bad' : 'ok';
+    } catch (e) { line = `${w}px: cannot read (${e.message}; page must be same origin and loaded)`; cap.className = 'bad'; }
+    cap.textContent = line.split(' (')[0];
+    results[w] = line;
+  }
+
+  function run() {
+    frames.forEach(measure);
+    if (full) frames.forEach(fr => { fr.f.height = Math.max(h, fr.f.contentDocument?.documentElement.scrollHeight || h); });   // settle after pinning
+    report.textContent = widths.map(w => results[w]).join('\n');
+    document.body.dataset.done = '1';
+  }
+  if (!src) report.textContent = 'Add ?src=<page url> (same origin as this file).';
+  else {
+    // The parent load event waits for every iframe: report at once, again once fonts and layout settle. Timeout covers a hung subresource.
+    addEventListener('load', () => { run(); setTimeout(run, 600); });
+    setTimeout(() => document.body.dataset.done || run(), 4000);   // load re-runs it if it comes later
+  }
+</script>
+</body>
+</html>

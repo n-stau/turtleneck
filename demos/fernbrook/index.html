@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fernbrook Bank: free current account, cashback card, savings</title>
+<meta name="description" content="A free current account with a mobile app, a cashback credit card, savings with interest and built-in security. Fernbrook Bank is a fictional bank for this demo.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../../skills/turtleneck/tokens.css">
+<link rel="stylesheet" href="../../skills/turtleneck/styles/vault.css">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".22"/></linearGradient>
+    <symbol id="mark" viewBox="0 0 28 28"><rect width="28" height="28" rx="8" fill="#166534"/><path d="M8 21V9.5C8 8.7 8.7 8 9.5 8H20M8 15h9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m7.5 12.3 3 3 6-6.3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 32 32"><rect x="6" y="14" width="20" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 14v-3a6 6 0 0 1 12 0v3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="16" cy="21" r="2" fill="currentColor"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 32 32"><path d="M8 23V14a8 8 0 0 1 16 0v9l2 2H6zM13 27a3 3 0 0 0 6 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-snow" viewBox="0 0 32 32"><path d="M16 4v24M5.6 10l20.8 12M5.6 22 26.4 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 32 32"><path d="M16 4 6 8v7c0 6.5 4.2 11 10 13 5.8-2 10-6.5 10-13V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m11.5 16 3.5 3.5 6-6.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="card-svg" viewBox="0 0 340 215">
+      <rect width="340" height="215" rx="20" fill="#166534"/><rect width="340" height="215" rx="20" fill="url(#sheen)"/>
+      <circle cx="285" cy="-10" r="120" fill="#fff" opacity=".07"/><circle cx="330" cy="60" r="90" fill="#fff" opacity=".06"/>
+      <rect x="28" y="62" width="44" height="34" rx="6" fill="#e8d9a8"/><path d="M28 79h44M50 62v34" stroke="#b9a766" stroke-width="1.5"/>
+      <use href="#mark" x="28" y="24" width="24" height="24" style="opacity:0"/>
+      <text x="28" y="40" fill="#fff" font-family="Manrope, system-ui, sans-serif" font-weight="700" font-size="19" letter-spacing="-.4">Fernbrook</text>
+      <text x="28" y="148" fill="#fff" font-family="Inter, system-ui, sans-serif" font-weight="500" font-size="19" letter-spacing="3">0000  0000  0000  0000</text>
+      <text x="28" y="186" fill="#fff" font-family="Inter, system-ui, sans-serif" font-size="12" opacity=".85" letter-spacing="1">SAMPLE CARDHOLDER</text>
+      <g transform="translate(266 168)" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M0 0c4 4 4 12 0 16M7-3c7 7 7 19 0 22M14-6c10 10 10 26 0 28" opacity=".9"/></g>
+    </symbol>
+    <symbol id="phone-svg" viewBox="0 0 220 440">
+      <rect x="2" y="2" width="216" height="436" rx="34" fill="#121a3a"/><rect x="10" y="10" width="200" height="420" rx="27" fill="#fff"/>
+      <rect x="80" y="18" width="60" height="14" rx="7" fill="#121a3a"/>
+      <text x="26" y="64" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#5e6573">Current account</text>
+      <text x="26" y="92" font-family="Manrope, system-ui, sans-serif" font-weight="700" font-size="26" fill="#121a3a" letter-spacing="-.5">$2,480.16</text>
+      <rect x="26" y="108" width="76" height="30" rx="15" fill="#166534"/><text x="64" y="127" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="600" font-size="11" fill="#fff">Send</text>
+      <rect x="110" y="108" width="84" height="30" rx="15" fill="none" stroke="#121a3a" stroke-width="1.5"/><text x="152" y="127" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="600" font-size="11" fill="#121a3a">Add money</text>
+      <rect x="22" y="158" width="176" height="74" rx="14" fill="#f3f5f7"/>
+      <text x="36" y="180" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#5e6573">Cashback this month</text>
+      <text x="36" y="206" font-family="Manrope, system-ui, sans-serif" font-weight="700" font-size="20" fill="#166534">$18.40</text>
+      <rect x="36" y="216" width="148" height="5" rx="2.5" fill="#e1e4ea"/><rect x="36" y="216" width="92" height="5" rx="2.5" fill="#166534"/>
+      <g font-family="Inter, system-ui, sans-serif" font-size="11"><text x="26" y="266" font-weight="600" fill="#121a3a">Today</text>
+        <circle cx="34" cy="290" r="10" fill="#e9edf2"/><text x="52" y="294" fill="#121a3a">Oakline Coffee</text><text x="194" y="294" text-anchor="end" fill="#121a3a">-$4.20</text>
+        <circle cx="34" cy="324" r="10" fill="#e9edf2"/><text x="52" y="328" fill="#121a3a">Salary</text><text x="194" y="328" text-anchor="end" fill="#166534" font-weight="600">+$2,100</text>
+        <circle cx="34" cy="358" r="10" fill="#e9edf2"/><text x="52" y="362" fill="#121a3a">Metro pass</text><text x="194" y="362" text-anchor="end" fill="#121a3a">-$32.00</text></g>
+      <rect x="82" y="412" width="56" height="4" rx="2" fill="#121a3a" opacity=".25"/>
+    </symbol>
+  </defs>
+</svg>
+
+<nav class="gnav" aria-label="Main">
+  <ul class="gnav-list">
+    <li><a href="#top" class="gnav-mark" aria-label="Fernbrook Bank home"><svg aria-hidden="true"><use href="#mark"/></svg>Fernbrook</a></li>
+    <li class="gnav-links"><a href="#accounts">Accounts</a><a href="#app">App</a><a href="#card">Card</a><a href="#savings">Savings</a><a href="#security">Security</a></li>
+    <li class="gnav-end"><a class="gnav-signin" href="#open">Sign in</a><a class="a-button" href="#open">Open<span class="long">&nbsp;account</span></a>
+      <button class="gnav-burger" type="button" popovertarget="menu" aria-label="Menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></li>
+  </ul>
+</nav>
+<div class="gnav-flyout" id="menu" popover>
+  <button class="close" type="button" popovertarget="menu" popovertargetaction="hide" aria-label="Close menu">&times;</button>
+  <ul><li><a href="#accounts">Accounts</a></li><li><a href="#app">App</a></li><li><a href="#card">Card</a></li><li><a href="#savings">Savings</a></li><li><a href="#security">Security</a></li><li><a href="#open">Sign in</a></li></ul>
+  <a class="a-button" href="#open">Open account</a>
+</div>
+
+<main id="top">
+  <section class="hero">
+    <div class="a-container-wide hero-grid">
+      <div>
+        <p class="a-eyebrow">Free current account</p>
+        <h1 class="a-hero">Banking that stays out of your way.</h1>
+        <p class="a-intro">A free current account, a cashback card and savings that pay interest. All in one app, open in 5 minutes.</p>
+        <div class="a-buttons"><a class="a-button" href="#open">Open an account</a><a class="a-more" href="#accounts">Compare products</a></div>
+        <p class="a-legal">Fernbrook Bank is a fictional bank made for this demo. Rates and terms are examples. Credit is subject to status.</p>
+      </div>
+      <div class="stage" role="img" aria-label="A green Fernbrook card next to the Fernbrook app showing a balance of $2,480.16">
+        <div class="card-art"><svg viewBox="0 0 340 215" aria-hidden="true"><use href="#card-svg"/></svg></div>
+        <div class="phone-art"><svg viewBox="0 0 220 440" aria-hidden="true"><use href="#phone-svg"/></svg></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="statbar" aria-label="Key figures">
+    <div class="a-container-wide"><dl class="stats">
+      <div><dt>Monthly fee</dt><dd class="a-num">$0</dd></div>
+      <div><dt>Cashback on everyday spend</dt><dd class="a-num">1.5<span class="u">%</span></dd></div>
+      <div><dt>Savings interest, variable</dt><dd class="a-num">4.10<span class="u">% AER</span></dd></div>
+      <div><dt>Card freeze time</dt><dd class="a-num">2<span class="u"> sec</span></dd></div>
+    </dl></div>
+  </section>
+
+  <section class="a-section-block a-alt" id="accounts">
+    <div class="a-container-wide">
+      <div class="sec-head"><p class="a-eyebrow">Products</p><h2 class="a-headline">Three products. No small print surprises.</h2></div>
+      <div class="cards">
+        <article class="a-tile pcard"><p class="a-eyebrow">Current account</p><p class="big a-num">$0<small>per month</small></p>
+          <p class="cond">No monthly fee, no minimum balance, fee-free card payments abroad up to $1,000 a month.</p>
+          <p class="a-legal">Fair use applies to foreign payments.</p><a class="a-button a-button-secondary" href="#app">See the app</a></article>
+        <article class="a-tile pcard"><p class="a-eyebrow">Cashback credit card</p><p class="big a-num">1.5%<small>cashback</small></p>
+          <p class="cond">On every purchase, paid into your account each month. No annual fee.</p>
+          <p class="a-legal">Representative 22.9% APR (variable). Credit subject to status.</p><a class="a-button a-button-secondary" href="#card">See the card</a></article>
+        <article class="a-tile pcard"><p class="a-eyebrow">Savings</p><p class="big a-num">4.10%<small>AER</small></p>
+          <p class="cond">Interest paid monthly. Withdraw any time, with no notice and no penalty.</p>
+          <p class="a-legal">Variable rate, may change. Example rate for this demo.</p><a class="a-button a-button-secondary" href="#savings">See savings</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="a-section-block" id="app">
+    <div class="a-container-wide split">
+      <div class="panel tint"><div class="phone-art"><svg viewBox="0 0 220 440" role="img" aria-label="Fernbrook app home screen with balance, cashback and recent transactions"><use href="#phone-svg"/></svg></div></div>
+      <div>
+        <p class="a-eyebrow">Mobile app</p><h2 class="a-headline" style="margin-top:10px">Your money, one tap away.</h2>
+        <p class="a-intro" style="margin-top:14px">See every payment as it happens. Send money, split a bill, or set up a bill in seconds.</p>
+        <ul class="ticks">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><div><b>Instant payment alerts</b><span>A notification the moment your card is used.</span></div></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><div><b>Send money free</b><span>Pay anyone with a phone number or account details.</span></div></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><div><b>Spending that sorts itself</b><span>Groceries, travel and bills, grouped and totalled.</span></div></li>
+        </ul>
+        <div class="a-buttons" style="justify-content:flex-start;margin-top:28px"><a class="a-button" href="#open">Get the app</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="a-section-block a-alt" id="card">
+    <div class="a-container-wide split">
+      <div>
+        <p class="a-eyebrow">Cashback card</p><h2 class="a-headline" style="margin-top:10px">1.5% back on everything you buy.</h2>
+        <p class="a-intro" style="margin-top:14px">No categories to track and no cap to hit. Pay off the balance each month and the cashback is yours.</p>
+        <dl class="stats" style="margin-top:28px">
+          <div><dt>Annual fee</dt><dd class="a-num">$0</dd></div>
+          <div><dt>Interest-free days</dt><dd class="a-num">56</dd></div>
+        </dl>
+        <div class="a-buttons" style="justify-content:flex-start;margin-top:28px"><a class="a-button" href="#open">Apply for the card</a></div>
+        <p class="a-legal" style="margin-top:16px">Representative 22.9% APR (variable). Example: spend $1,000, get $15 cashback. Credit subject to status and affordability.</p>
+      </div>
+      <div class="panel tint"><div class="card-art"><svg viewBox="0 0 340 215" role="img" aria-label="Green Fernbrook cashback credit card"><use href="#card-svg"/></svg></div></div>
+    </div>
+  </section>
+
+  <section class="a-section-block" id="savings">
+    <div class="a-container-wide split">
+      <div>
+        <p class="a-eyebrow">Savings</p><h2 class="a-headline" style="margin-top:10px">Savings that earn 4.10% AER.</h2>
+        <p class="a-intro" style="margin-top:14px">Move money in from the app and watch interest land every month. Your money stays instant access.</p>
+        <p class="a-legal" style="margin-top:16px">AER is variable and for illustration. Eligible deposits protected up to $250,000 under a fictional scheme.</p>
+      </div>
+      <form class="panel calc" onsubmit="return false" aria-label="Savings estimate (demo)">
+        <label for="amt">Amount you save</label>
+        <input id="amt" type="text" inputmode="numeric" value="$10,000" aria-describedby="amt-h">
+        <p class="help" id="amt-h">Example figure. Estimates only.</p>
+        <div class="result"><p class="lbl">Interest after 12 months</p><p class="val a-num" aria-live="polite">$410.00</p>
+          <div class="bars" aria-hidden="true"><i style="height:20%"></i><i style="height:26%"></i><i style="height:32%"></i><i style="height:38%"></i><i style="height:44%"></i><i style="height:50%"></i><i style="height:56%"></i><i style="height:62%"></i><i style="height:70%"></i><i style="height:78%"></i><i style="height:88%"></i><i style="height:100%"></i></div></div>
+        <div class="row"><button class="a-button" type="button">Open savings</button></div>
+      </form>
+    </div>
+  </section>
+
+  <section class="a-section-block a-dark" id="security">
+    <div class="a-container-wide">
+      <div class="sec-head"><p class="a-eyebrow">Security</p><h2 class="a-headline">Protected before you think about it.</h2>
+        <p class="a-intro">Four layers work in the background, so you do not have to.</p></div>
+      <div class="sec-grid">
+        <article class="sec-item"><svg aria-hidden="true"><use href="#i-lock"/></svg><h3 class="a-tile-head">Face or fingerprint</h3><p>Unlock the app and approve payments with your biometrics.</p></article>
+        <article class="sec-item"><svg aria-hidden="true"><use href="#i-snow"/></svg><h3 class="a-tile-head">Freeze in 2 seconds</h3><p>Lost your card? Freeze it in the app and unfreeze when it turns up.</p></article>
+        <article class="sec-item"><svg aria-hidden="true"><use href="#i-bell"/></svg><h3 class="a-tile-head">Live fraud alerts</h3><p>We flag odd payments and ask you before they go through.</p></article>
+        <article class="sec-item"><svg aria-hidden="true"><use href="#i-shield"/></svg><h3 class="a-tile-head">Money protected</h3><p>Eligible deposits are covered up to $250,000 (fictional scheme).</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="a-section-block" id="open">
+    <div class="a-container-wide signup">
+      <div><p class="a-eyebrow">Get started</p><h2 class="a-headline" style="margin-top:10px">Open your free account today.</h2>
+        <p class="a-intro" style="margin-top:14px">You need a phone and an ID. Most people finish in 5 minutes.</p>
+        <div class="faq" style="margin-top:28px">
+          <details><summary>Is the current account really free?</summary><p>Yes. There is no monthly fee and no minimum balance.</p></details>
+          <details><summary>When is cashback paid?</summary><p>Once a month, straight into your current account.</p></details>
+          <details><summary>Can I take savings out any time?</summary><p>Yes. Withdrawals are instant and have no penalty.</p></details>
+        </div></div>
+      <form class="panel form" onsubmit="return false" aria-label="Open an account (demo)">
+        <div><label for="n">Full name</label><input id="n" autocomplete="name" placeholder="Alex Sample"></div>
+        <div><label for="e">Email</label><input id="e" type="email" autocomplete="email" placeholder="alex@example.com"></div>
+        <div><label for="p">Mobile number</label><input id="p" type="tel" autocomplete="tel" placeholder="555 0100"></div>
+        <button class="a-button" type="button">Continue</button>
+        <p class="a-legal">Demo form, nothing is sent. By continuing you would agree to the terms and privacy notice.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="gfoot">
+  <div class="a-container-wide">
+    <div class="foot-cols">
+      <details open><summary>Products</summary><ul><li><a href="#accounts">Current account</a></li><li><a href="#card">Cashback card</a></li><li><a href="#savings">Savings</a></li></ul></details>
+      <details open><summary>App</summary><ul><li><a href="#app">Features</a></li><li><a href="#security">Security</a></li><li><a href="#open">Get the app</a></li></ul></details>
+      <details open><summary>Company</summary><ul><li><a href="#top">About</a></li><li><a href="#top">Careers</a></li><li><a href="#top">Press</a></li></ul></details>
+      <details open><summary>Help</summary><ul><li><a href="#open">Contact us</a></li><li><a href="#open">Complaints</a></li><li><a href="#top">Fees</a></li></ul></details>
+    </div>
+    <div class="foot-legal">
+      <p class="a-legal">Fernbrook Bank is a fictional bank created for a design demo. No real products, rates or protections are offered. Cashback, APR and AER figures are examples. Credit is subject to status.</p>
+      <p class="a-legal">&copy; Fernbrook Bank (fictional)</p>
+    </div>
+  </div>
+</footer>
+<script>
+if (matchMedia('(max-width:733px)').matches) document.querySelectorAll('.foot-cols details').forEach(d => d.open = false);
+document.querySelectorAll('#menu a').forEach(a => a.addEventListener('click', () => document.getElementById('menu').hidePopover()));
+</script>
+</body>
+</html>

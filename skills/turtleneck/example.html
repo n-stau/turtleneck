@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Halo Speaker</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+  /* Demo built only from tokens.css + recipes-html.md. Fictional product, CSS-drawn visuals. */
+  .gnav { height: var(--a-nav-h); background: var(--a-nav-bg); -webkit-backdrop-filter: var(--a-nav-blur); backdrop-filter: var(--a-nav-blur); position: relative; z-index: 100; }
+  .gnav-list { list-style: none; margin: 0 auto; padding: 0 22px; max-width: 1024px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+  .gnav a { display: flex; align-items: center; height: var(--a-nav-h); padding: 0 8px; font-size: 12px; letter-spacing: -0.01em; color: var(--a-nav-text); transition: color var(--a-dur) var(--a-ease); }
+  .gnav a:hover { color: var(--a-text); text-decoration: none; }
+  @media (max-width: 833px) { .gnav-list li:not(:first-child):not(:last-child) { display: none; } }
+
+  .lnav { position: sticky; top: 0; z-index: 99; height: var(--a-localnav-h); background: var(--a-nav-bg); -webkit-backdrop-filter: var(--a-nav-blur); backdrop-filter: var(--a-nav-blur); border-bottom: 1px solid rgba(0,0,0,.16); }
+  .lnav-inner { max-width: 980px; margin: 0 auto; padding: 0 22px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+  .lnav-title { font-size: 21px; font-weight: 600; letter-spacing: 0.011em; color: var(--a-text); }
+  .lnav-title:hover { text-decoration: none; }
+  .lnav-menu { display: flex; align-items: center; gap: 24px; }
+  .lnav-menu a:not(.a-button) { font-size: 12px; color: var(--a-text); opacity: .8; }
+  .lnav-menu a[aria-current] { opacity: 1; pointer-events: none; box-shadow: inset 0 -1px 0 currentColor; }
+  @media (max-width: 734px) { .lnav-menu a:not(.a-button) { display: none; } }
+
+  .hero { padding-top: 64px; overflow: hidden; }
+  .hero-name { font-size: 28px; letter-spacing: .007em; }
+  .hero .a-hero { margin-top: 6px; }
+  .hero .a-violator { margin-top: 14px; }
+  .hero-cta { margin-top: 24px; align-items: center; }
+
+  /* CSS-drawn speaker: fabric cylinder seen from the front */
+  .speaker { position: relative; margin: 56px auto 0; width: min(340px, 62vw); aspect-ratio: 34 / 46; border-radius: 46% / 34%;
+    background:
+      radial-gradient(circle at 50% 50%, rgba(255,255,255,.08) 0 1px, transparent 1.5px) 0 0 / 6px 6px,
+      linear-gradient(90deg, #b9b9bf 0%, #e9e9ee 28%, #f6f6f8 50%, #dedee3 72%, #a7a7ad 100%); }
+  .speaker::before { content: ""; position: absolute; left: 50%; top: 9%; width: 34%; aspect-ratio: 3/1; translate: -50% 0; border-radius: 50%;
+    background: radial-gradient(ellipse at 50% 40%, #fafafc, #d6d6db 70%); box-shadow: inset 0 -2px 4px rgba(0,0,0,.08); }
+  .speaker::after { content: ""; position: absolute; left: 14%; right: 14%; bottom: -24px; height: 24px; border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(0,0,0,.18), transparent 70%); }
+  .speaker.dark { background:
+      radial-gradient(circle at 50% 50%, rgba(255,255,255,.05) 0 1px, transparent 1.5px) 0 0 / 6px 6px,
+      linear-gradient(90deg, #1c1c1e 0%, #3a3a3d 30%, #4a4a4e 50%, #333336 72%, #141415 100%); }
+  .speaker.dark::before { background: radial-gradient(ellipse at 50% 40%, #5a5a5e, #2a2a2c 70%); }
+  .speaker.small { width: 150px; margin-top: auto; }
+
+  .highlights h2 { margin-bottom: 40px; }
+  .gallery { display: grid; grid-auto-flow: column; grid-auto-columns: min(80vw, 860px); gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding-inline: max(6.25%, calc((100vw - 1260px) / 2)); scrollbar-width: none; }
+  .gallery::-webkit-scrollbar { display: none; }
+  .card { scroll-snap-align: center; border-radius: var(--a-radius-tile); aspect-ratio: 16 / 10; overflow: hidden; padding: 40px; position: relative;
+    display: flex; flex-direction: column; background: var(--a-bg); }
+  .card .caption { font-size: 17px; font-weight: 600; letter-spacing: -0.022em; line-height: 1.23536; max-width: 420px; }
+  .card.night { background: #000; color: #f5f5f7; }
+  .card .speaker { margin-top: auto; width: 150px; }
+  .card .wave { margin: auto auto 0; display: flex; gap: 6px; align-items: end; height: 120px; }
+  .card .wave i { width: 8px; border-radius: 4px; background: linear-gradient(#2997ff, #0071e3); }
+  .card .ring { margin: auto auto 0; width: 150px; aspect-ratio: 1; border-radius: 50%; border: 14px solid var(--a-bg-alt); border-top-color: #03a10e; rotate: 30deg; }
+
+  .chapter-head { margin-bottom: 56px; }
+  .chapter-head .a-hero { margin-top: 12px; }
+  .chapter-head .a-intro { margin-top: 24px; max-width: 816px; }
+
+  .bento { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .bento-item { padding: 40px; min-height: 240px; display: flex; flex-direction: column; gap: 8px; }
+  .bento-item.span-2 { grid-column: span 2; flex-direction: row; align-items: center; justify-content: space-between; gap: 40px; }
+  .stat { font-size: 80px; line-height: 1; font-weight: 600; letter-spacing: -0.015em; font-variant-numeric: tabular-nums; }
+  .stat.green { color: #03a10e; }
+  .swatches { display: flex; gap: 10px; margin-top: auto; }
+  .swatches span { width: 22px; height: 22px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(0,0,0,.1); }
+  @media (max-width: 734px) {
+    .bento { grid-template-columns: 1fr; }
+    .bento-item.span-2 { grid-column: auto; flex-direction: column; align-items: flex-start; }
+    .bento-item { padding: 28px; }
+    .stat { font-size: 56px; }
+  }
+
+  .sound .speaker { margin-top: 64px; width: min(300px, 60vw); }
+  .sound .stats { display: flex; justify-content: center; gap: 80px; margin-top: 72px; flex-wrap: wrap; text-align: center; }
+  .sound .stats .a-caption { font-size: 17px; color: var(--a-text-tertiary); margin-top: 8px; }
+
+  .tiles-2up { width: min(var(--a-content-wide), calc(100% - 24px)); margin: 0 auto; }
+  .tile-promo { border-radius: 0; display: flex; flex-direction: column; align-items: center; text-align: center; min-height: 520px; padding: 44px 24px 48px; color: var(--a-text); }
+  .tile-promo:hover { text-decoration: none; }
+  .tile-promo .a-subhead { margin-top: 4px; }
+  .tile-promo .a-buttons { margin-top: 16px; }
+  .tile-promo.night { background: #000; color: #f5f5f7; }
+  .tile-promo.night .a-button-secondary { color: #2997ff; border-color: #2997ff; }
+
+  .gfoot { background: var(--a-bg-alt); font-size: 12px; line-height: 1.33337; letter-spacing: -0.01em; color: var(--a-text-secondary); }
+  .gfoot-inner { max-width: 980px; margin: 0 auto; padding: 17px 22px 21px; }
+  .gfoot-notes { padding-bottom: 17px; border-bottom: 1px solid var(--a-hairline); }
+  .gfoot-notes p + p { margin-top: 8px; }
+  .gfoot-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 20px 0; }
+  .gfoot h3 { font-size: 12px; font-weight: 600; color: var(--a-text); margin-bottom: 8px; }
+  .gfoot ul { list-style: none; margin: 0; padding: 0; }
+  .gfoot li { margin-bottom: 8px; }
+  .gfoot a { color: var(--a-text-secondary); }
+  .gfoot-legal { display: flex; flex-wrap: wrap; gap: 8px 20px; padding-top: 16px; border-top: 1px solid var(--a-hairline); }
+  @media (max-width: 734px) { .gfoot-cols { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+  <nav class="gnav" aria-label="Global">
+    <ul class="gnav-list">
+      <li><a href="#" aria-label="Home"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/></svg></a></li>
+      <li><a href="#">Store</a></li><li><a href="#">Speakers</a></li><li><a href="#">Headphones</a></li>
+      <li><a href="#">Home</a></li><li><a href="#">Accessories</a></li><li><a href="#">Support</a></li>
+      <li><a href="#" aria-label="Search"><svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M10.2 10.2 14 14" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></a></li>
+    </ul>
+  </nav>
+
+  <nav class="lnav" aria-label="Halo">
+    <div class="lnav-inner">
+      <a class="lnav-title" href="#">Halo</a>
+      <div class="lnav-menu">
+        <a href="#" aria-current="page">Overview</a><a href="#">Tech Specs</a><a href="#">Compare</a>
+        <a class="a-button a-button-tiny" href="#">Buy</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero a-center">
+      <h1 class="a-eyebrow hero-name">Halo</h1>
+      <p class="a-hero">Room-filling. Quietly.</p>
+      <p class="a-violator">New in Graphite and Snow</p>
+      <div class="a-buttons hero-cta">
+        <a class="a-button" href="#">Buy</a>
+        <a class="a-more" href="#">Learn more</a>
+      </div>
+      <div class="speaker" role="img" aria-label="Halo speaker, a soft fabric cylinder in silver"></div>
+      <div style="height:96px"></div>
+    </section>
+
+    <section class="a-section-block a-alt highlights">
+      <div class="a-container-wide"><h2 class="a-headline a-gradient a-reveal">Get the highlights.</h2></div>
+      <div class="gallery">
+        <article class="card"><p class="caption">Sound that fills the room from a speaker that fits in one hand.</p><div class="speaker"></div></article>
+        <article class="card night"><p class="caption">Adaptive tuning listens to the room and adjusts 40 times a second.</p>
+          <div class="wave" aria-hidden="true"><i style="height:30%"></i><i style="height:60%"></i><i style="height:90%"></i><i style="height:70%"></i><i style="height:100%"></i><i style="height:55%"></i><i style="height:80%"></i><i style="height:40%"></i><i style="height:65%"></i><i style="height:35%"></i></div></article>
+        <article class="card"><p class="caption">Up to 24 hours of playback on a single charge.</p><div class="ring" aria-hidden="true"></div></article>
+      </div>
+    </section>
+
+    <section class="a-section-block">
+      <div class="a-container">
+        <header class="chapter-head">
+          <h2 class="a-eyebrow">Design</h2>
+          <p class="a-hero a-gradient a-reveal">Soft outside. Serious inside.</p>
+          <p class="a-intro"><strong>Wrapped in recycled knit.</strong> A seamless cylinder with no visible screws, one touch surface on top and a base that keeps it planted on any shelf.</p>
+        </header>
+        <div class="bento">
+          <article class="a-tile bento-item span-2 a-reveal">
+            <div><p class="a-caption">Playback</p><p class="stat green">24 hrs</p><p class="a-body" style="margin-top:8px">On a single charge.</p></div>
+            <div class="speaker small" aria-hidden="true"></div>
+          </article>
+          <article class="a-tile bento-item a-reveal"><p class="a-caption">Weight</p><p class="stat">640 g</p><p class="a-body">Light enough to carry room to room.</p></article>
+          <article class="a-tile bento-item a-reveal"><p class="a-caption">Finishes</p><h3 class="a-tile-head">Two colors.</h3>
+            <div class="swatches"><span style="background:#3a3a3d"></span><span style="background:#f0f0f2"></span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="a-section-block a-dark a-center sound">
+      <div class="a-container">
+        <h2 class="a-eyebrow">Sound</h2>
+        <p class="a-hero a-reveal" style="margin-top:12px">Big sound. <span class="a-gradient" style="background-image:linear-gradient(90deg,#f5f5f7,#8fa3c7)">Small footprint.</span></p>
+        <p class="a-intro" style="margin:24px auto 0;max-width:680px"><strong>Three drivers, one direction: all of them.</strong> Sound spreads evenly across the room, so every seat is the best seat.</p>
+        <div class="speaker dark" role="img" aria-label="Halo in Graphite"></div>
+        <div class="stats">
+          <div><p class="stat a-num">360°</p><p class="a-caption">Even coverage</p></div>
+          <div><p class="stat a-num">3</p><p class="a-caption">Custom drivers</p></div>
+          <div><p class="stat a-num">40×</p><p class="a-caption">Tuning per second</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding:12px 0">
+      <div class="a-grid tiles-2up">
+        <a class="a-tile tile-promo" href="#">
+          <h3 class="a-tile-head">Halo Mini</h3><p class="a-subhead">Pocket-size. Party-ready.</p>
+          <span class="a-buttons"><span class="a-button a-button-small">Learn more</span><span class="a-button a-button-small a-button-secondary">Buy</span></span>
+          <div class="speaker small" style="width:120px" aria-hidden="true"></div>
+        </a>
+        <a class="a-tile tile-promo night" href="#">
+          <h3 class="a-tile-head">Halo Studio</h3><p class="a-subhead">Pro sound for small rooms.</p>
+          <span class="a-buttons"><span class="a-button a-button-small">Learn more</span><span class="a-button a-button-small a-button-secondary">Buy</span></span>
+          <div class="speaker dark small" style="width:170px" aria-hidden="true"></div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="gfoot">
+    <div class="gfoot-inner">
+      <div class="gfoot-notes">
+        <p>1. Battery life depends on volume and use. Testing done with prerelease units in 2026.</p>
+        <p>This is a demo page for the turtleneck skill. Halo is a fictional product.</p>
+      </div>
+      <nav class="gfoot-cols" aria-label="Footer">
+        <div><h3>Shop</h3><ul><li><a href="#">Speakers</a></li><li><a href="#">Headphones</a></li><li><a href="#">Accessories</a></li></ul></div>
+        <div><h3>Account</h3><ul><li><a href="#">Manage account</a></li><li><a href="#">Orders</a></li></ul></div>
+        <div><h3>Support</h3><ul><li><a href="#">Setup guide</a></li><li><a href="#">Repairs</a></li><li><a href="#">Contact</a></li></ul></div>
+        <div><h3>Company</h3><ul><li><a href="#">About</a></li><li><a href="#">Careers</a></li></ul></div>
+      </nav>
+      <div class="gfoot-legal"><span>Copyright © 2026 Halo Audio. All rights reserved.</span><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+  </footer>
+
+  <script>
+    document.documentElement.classList.add('a-js');
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+    }), { rootMargin: '0px 0px -10% 0px' });
+    document.querySelectorAll('.a-reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

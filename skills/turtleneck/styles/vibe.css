@@ -1,0 +1,65 @@
+/* turtleneck preset: vibe (music & social). Load AFTER tokens.css. Dark default, warm-cream light variant.
+   Blend of 5 reference sites (research notes kept outside the skill). Values are light-dark(light, dark).
+   Font (free, optional; the fallback stack works): <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700;800&display=swap"> */
+
+:root:not([data-theme="light"]) { color-scheme: dark; }
+:root {
+  --a-font: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --a-weight-display: 800;
+  --a-body-size: 1rem; --a-body-lh: 1.5; --a-body-track: 0;
+  --a-size-hero: clamp(3rem, 2.296rem + 3.005vw, 6rem);           /* 48 -> 96 */
+  --a-size-headline: clamp(2.25rem, 2.074rem + 0.751vw, 3rem);    /* 36 -> 48 */
+  --a-size-section: clamp(1.75rem, 1.662rem + 0.376vw, 2rem);     /* 28 -> 32 */
+  --a-size-tile: clamp(1.25rem, 1.162rem + 0.376vw, 1.5rem);      /* 20 -> 24 */
+  --a-size-subhead: 1.25rem;
+  --a-lh-display: 1.04; --a-track-display: -0.02em;
+  --a-eyebrow-size: 1rem; --a-eyebrow-weight: 700; --a-eyebrow-track: 0;
+  --a-intro-size: 1.25rem; --a-intro-weight: 400; --a-intro-color: var(--a-text-secondary);
+
+  --a-text: light-dark(#0e0e10, #f3f3f5);
+  --a-text-secondary: light-dark(#62656c, #a7a7af);
+  --a-text-tertiary: light-dark(#62656c, #a7a7af);
+  --a-accent-text: light-dark(#6a3fe0, #9b6cff);  /* deeper violet on light for AA */
+  --a-violator: var(--a-link);
+  --a-bg: light-dark(#ffffff, #0e0e10);
+  --a-bg-alt: light-dark(#f6f4ef, #1c1c20);       /* warm cream / one tone lighter */
+  --a-bg-elevated: light-dark(#f6f4ef, #26262b);
+  --a-fill-quaternary: light-dark(#ebe8e0, #26262b);
+  --a-hairline: light-dark(rgba(14, 14, 16, 0.1), rgba(255, 255, 255, 0.08));
+  --a-blue: #9b6cff;                              /* electric violet, dark text on it */
+  --a-blue-hover: #b08bff;
+  --a-on-accent: #0e0e10;
+
+  --a-nav-bg: var(--a-bg);
+  --a-nav-text: var(--a-text);
+  --a-nav-blur: none;
+  --a-nav-h: 64px;
+
+  --a-radius-tile: 24px;
+  --a-radius-card: 20px;                          /* media */
+  --a-radius-button: 9999px;
+  --a-button-h: 48px; --a-button-pad: 0 28px; --a-button-size: 16px; --a-button-weight: 700; --a-button-track: 0;
+  --a-button2-bg: light-dark(transparent, #ffffff);
+  --a-button2-text: #0e0e10;
+  --a-button2-border: light-dark(#0e0e10, #ffffff);
+  --a-button2-hover-bg: light-dark(#ebe8e0, #e6e6ea);
+  --a-button2-hover-text: #0e0e10;
+  --a-tile-bg: var(--a-bg-alt);
+  --a-tile-bg-alt: var(--a-bg-elevated);
+
+  --a-content: 1120px;
+  --a-content-wide: 1440px;
+  --a-section-pad: clamp(4rem, 3.296rem + 3.005vw, 6rem);         /* 64 -> 96 */
+  --a-tile-pad: clamp(1.5rem, 1.324rem + 0.751vw, 2rem);          /* 24 -> 32 */
+  --a-bento-gap: clamp(1rem, 0.824rem + 0.751vw, 1.5rem);         /* 16 -> 24 */
+  --a-tile-gap: var(--a-bento-gap);
+
+  --a-ease: cubic-bezier(0.3, 0, 0, 1);
+  --a-dur: 0.16s;
+  --a-reveal-rise: 16px; --a-reveal-dur: 0.25s;
+}
+
+/* Press feedback instead of hover lifts. */
+.a-button { transition: background-color var(--a-dur) var(--a-ease), transform var(--a-dur) var(--a-ease); }
+.a-button:active { transform: scale(0.97); }
+@media (prefers-reduced-motion: reduce) { .a-button:active { transform: none; } }

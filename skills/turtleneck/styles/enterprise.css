@@ -1,0 +1,74 @@
+/* turtleneck preset: enterprise (business software). Load AFTER tokens.css. Light default; dark mode follows the OS.
+   Blend of 5 reference sites (research notes kept outside the skill). Values are light-dark(light, dark).
+   Fonts (free, optional; the fallback stack works):
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&family=Source+Code+Pro&display=swap"> */
+
+:root {
+  --a-font: "Source Sans 3", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  --a-font-mono: "Source Code Pro", ui-monospace, Menlo, Consolas, monospace;
+  --a-weight-display: 400;                        /* tile heads 600 (rule below) */
+  --a-body-size: 1rem; --a-body-lh: 1.5; --a-body-track: 0;
+  --a-size-hero: clamp(2.25rem, 1.81rem + 1.878vw, 3.5rem);       /* 36 -> 56 */
+  --a-size-headline: clamp(1.875rem, 1.655rem + 0.939vw, 2.5rem); /* 30 -> 40 */
+  --a-size-section: clamp(1.625rem, 1.493rem + 0.5634vw, 2rem);   /* 26 -> 32 */
+  --a-size-tile: clamp(1.25rem, 1.162rem + 0.3756vw, 1.5rem);     /* 20 -> 24 */
+  --a-size-subhead: 1.125rem;
+  --a-lh-display: 1.15; --a-track-display: -0.015em;
+  --a-eyebrow-size: 0.8125rem; --a-eyebrow-weight: 600; --a-eyebrow-track: 0.04em; --a-eyebrow-case: uppercase;
+  --a-eyebrow-color: var(--a-text-secondary);
+  --a-intro-size: 1.125rem; --a-intro-weight: 400; --a-intro-color: var(--a-text-secondary);
+
+  --a-text: light-dark(#161a22, #eef2f8);
+  --a-text-secondary: light-dark(#4f5866, #b3bdcc);
+  --a-text-tertiary: light-dark(#5f6876, #98a3b6);
+  --a-accent-text: light-dark(#2b59c3, #8eacf0);
+  --a-violator: var(--a-link);
+  --a-bg: light-dark(#ffffff, #14213a);           /* dark mode and the one dark band: deep navy */
+  --a-bg-alt: light-dark(#f4f5f7, #0f1a2f);
+  --a-bg-elevated: light-dark(#ffffff, #1b2a47);  /* cards, menus */
+  --a-fill-quaternary: light-dark(#e8eefb, #22314f);
+  --a-hairline: light-dark(#d9dde3, #2f4062);
+  --a-blue: #2b59c3;                              /* steel cobalt, white text 6.3:1 */
+  --a-blue-hover: #2249a6;
+  --a-on-accent: #ffffff;
+
+  --a-nav-bg: var(--a-bg);                        /* solid, no glass */
+  --a-nav-text: var(--a-text);
+  --a-nav-blur: none;
+  --a-nav-h: 64px;
+  --a-localnav-h: 48px;
+
+  --a-radius-tile: 10px;
+  --a-radius-card: 10px;
+  --a-radius-button: 6px;
+  --a-button-pad: 0 20px; --a-button-size: 15px; --a-button-weight: 600; --a-button-track: 0;
+  --a-button2-text: var(--a-link);
+  --a-button2-border: var(--a-link);
+  --a-button2-hover-bg: var(--a-fill-quaternary);
+  --a-button2-hover-text: var(--a-link);
+  --a-tile-bg: var(--a-bg-elevated);
+  --a-tile-bg-alt: var(--a-bg-elevated);
+  --a-tile-border: 1px solid var(--a-hairline);
+  --a-tile-shadow: 0 1px 2px light-dark(rgba(16, 24, 40, 0.06), rgba(0, 0, 0, 0.3));
+  --a-shadow-hover: 0 4px 12px light-dark(rgba(16, 24, 40, 0.08), rgba(0, 0, 0, 0.4));
+
+  --a-content: 1024px;
+  --a-content-wide: 1360px;
+  --a-section-pad: clamp(3.5rem, 2.972rem + 2.254vw, 5rem);       /* 56 -> 80 */
+  --a-tile-pad: clamp(1.5rem, 1.324rem + 0.7512vw, 2rem);         /* 24 -> 32 */
+  --a-bento-gap: 24px;
+  --a-tile-gap: 24px;
+  --a-gutter: max(24px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
+
+  --a-ease: cubic-bezier(0.2, 0, 0.2, 1);
+  --a-dur: 0.15s;                                 /* panels and menus 240ms */
+  --a-reveal-rise: 8px; --a-reveal-dur: 0.24s;
+}
+
+.a-tile-head { font-weight: 600; }
+:focus-visible { outline-offset: 2px; }
+.gnav { border-bottom: 1px solid var(--a-hairline); }
+/* Links look like links in content only; nav, menus and footer stay plain. */
+:where(main, .a-prose) :is(p, li) a:not(.a-button), .a-more { text-decoration: underline; text-underline-offset: 0.15em; }
+a.a-tile { transition: box-shadow var(--a-dur) var(--a-ease); }
+a.a-tile:hover { box-shadow: var(--a-shadow-hover); text-decoration: none; }

@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tidepath: stays and experiences</title>
+<meta name="description" content="Search stays and experiences by destination and dates. Featured homes, trip ideas and Tidepath Plus.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap">
+<link rel="stylesheet" href="../../skills/turtleneck/tokens.css">
+<link rel="stylesheet" href="../../skills/turtleneck/styles/journey.css">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="land-a" viewBox="0 0 400 300"><circle class="sun" cx="290" cy="90" r="38"/><path class="far" d="M0 200Q90 140 190 190T400 170V300H0z"/><path class="near" d="M0 245Q120 205 230 240T400 225V300H0z"/><path class="roof" d="M120 232l30-24 30 24v26h-60z"/><path class="far" d="M138 258v-14h24v14z"/></symbol>
+  <symbol id="land-b" viewBox="0 0 400 300"><circle class="sun" cx="110" cy="100" r="42"/><path class="far" d="M0 190c60-10 90 10 150 0s110-10 160 0 60 5 90 0V300H0z"/><path class="near" d="M0 225c70-14 110 12 190 0s140-12 210 2V300H0z"/><path class="roof" d="M250 205h70v-22h-70zM262 183l23-16 23 16z"/></symbol>
+  <symbol id="land-c" viewBox="0 0 400 300"><circle class="sun" cx="310" cy="80" r="30"/><path class="far" d="M0 220L90 120l60 70 70-110 90 140 90-60V300H0z"/><path class="near" d="M0 260l110-70 90 50 100-60 100 70V300H0z"/><path class="roof" d="M170 248h40v-18l-20-14-20 14z"/></symbol>
+</defs></svg>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#" aria-label="Tidepath home"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="currentColor"/><path d="M6 19c3-4 6-4 10 0s7 4 10 0" fill="none" stroke="#06100f" stroke-width="2.4" stroke-linecap="round"/><path d="M9 12.500c2-2.500 4.500-2.500 7 0s5 2.500 7 0" fill="none" stroke="#06100f" stroke-width="2.4" stroke-linecap="round" opacity=".55"/></svg>Tidepath</a>
+    <nav aria-label="Main"><ul class="tabs"><li><a href="#" aria-current="page">Stays</a></li><li><a href="#experiences">Experiences</a></li><li><a href="#ideas">Trip ideas</a></li><li><a href="#plus">Plus</a></li></ul></nav>
+    <div class="nav-end"><a class="pill" href="#">Sign in</a>
+      <button class="burger" type="button" popovertarget="menu" aria-label="Menu"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></div>
+  </div>
+</header>
+<div class="flyout" id="menu" popover>
+  <button class="close" type="button" popovertarget="menu" popovertargetaction="hide" aria-label="Close menu">&times;</button>
+  <ul><li><a href="#">Stays</a></li><li><a href="#experiences">Experiences</a></li><li><a href="#ideas">Trip ideas</a></li><li><a href="#plus">Tidepath Plus</a></li><li><a href="#">Sign in</a></li></ul>
+</div>
+
+<main>
+<section class="hero" id="experiences">
+  <div class="wrap">
+    <div class="mode" role="group" aria-label="What are you booking"><button type="button" aria-pressed="true">Stays</button><button type="button" aria-pressed="false">Experiences</button></div>
+    <h1>Find where the tide takes you</h1>
+    <p class="a-intro">Homes and experiences in 1,200 places, priced before you pick a date.</p>
+    <form class="search" role="search" onsubmit="return false">
+      <label>Where<input name="where" placeholder="Search destinations" autocomplete="off"></label>
+      <label>Check in<input name="in" placeholder="Add date" autocomplete="off"></label>
+      <label>Check out<input name="out" placeholder="Add date" autocomplete="off"></label>
+      <label>Guests<input name="guests" placeholder="Add guests" autocomplete="off"></label>
+      <button class="a-button a-button-accent" type="submit"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="8" cy="8" r="5.500" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12.500 12.500L16 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Search</button>
+    </form>
+    <ul class="hero-notes"><li><b>48,000</b> verified homes</li><li><b>4.8</b> average rating</li><li>Free cancellation on <b>70%</b> of stays</li></ul>
+  </div>
+</section>
+
+<section class="block alt" id="homes">
+  <div class="wrap">
+    <div class="head"><div><h2>Featured homes</h2><p>Hand-picked this week, from $109 a night.</p></div>
+      <div class="paddles"><button type="button" aria-label="Previous homes" data-dir="-1">&lsaquo;</button><button type="button" aria-label="Next homes" data-dir="1">&rsaquo;</button></div></div>
+    <div class="rail" id="rail" tabindex="0" aria-label="Featured homes">
+<article class="home a-reveal">
+  <div class="imgwrap"><a href="#" aria-label="Saltmarsh Cottage, Harrow Bay"><span class="scene s1" role="img" aria-label="Illustration of Saltmarsh Cottage"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><use href="#land-a"/></svg></span></a><span class="badge">Guest favourite</span>
+  <button class="fav" type="button" aria-pressed="false" aria-label="Save Saltmarsh Cottage"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-5.2-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 5.800-8 11-8 11z"/></svg></span></button></div>
+  <a href="#"><div class="row"><h3>Saltmarsh Cottage</h3><span class="rate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.1L12 18l-6.4 3.6L7 14.5 1.7 9.5l7.2-.9z"/></svg>4.92</span></div>
+  <p class="meta">Harrow Bay · 4 guests · 2 beds</p><p class="price"><b>$142</b> night</p></a>
+</article>
+<article class="home a-reveal">
+  <div class="imgwrap"><a href="#" aria-label="Lantern House on the Quay, Port Alder"><span class="scene s2" role="img" aria-label="Illustration of Lantern House on the Quay"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><use href="#land-b"/></svg></span></a>
+  <button class="fav" type="button" aria-pressed="false" aria-label="Save Lantern House on the Quay"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-5.2-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 5.800-8 11-8 11z"/></svg></span></button></div>
+  <a href="#"><div class="row"><h3>Lantern House on the Quay</h3><span class="rate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.1L12 18l-6.4 3.6L7 14.5 1.7 9.5l7.2-.9z"/></svg>4.88</span></div>
+  <p class="meta">Port Alder · 6 guests · 3 beds</p><p class="price"><b>$198</b> night</p></a>
+</article>
+<article class="home a-reveal">
+  <div class="imgwrap"><a href="#" aria-label="Larch Hut above the Fjord, Vennmark"><span class="scene s3" role="img" aria-label="Illustration of Larch Hut above the Fjord"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><use href="#land-c"/></svg></span></a><span class="badge">New</span>
+  <button class="fav" type="button" aria-pressed="false" aria-label="Save Larch Hut above the Fjord"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-5.2-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 5.800-8 11-8 11z"/></svg></span></button></div>
+  <a href="#"><div class="row"><h3>Larch Hut above the Fjord</h3><span class="rate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.1L12 18l-6.4 3.6L7 14.5 1.7 9.5l7.2-.9z"/></svg>4.97</span></div>
+  <p class="meta">Vennmark · 2 guests · 1 bed</p><p class="price"><b>$121</b> night</p></a>
+</article>
+<article class="home a-reveal">
+  <div class="imgwrap"><a href="#" aria-label="Terracotta Loft, Old Mirren"><span class="scene s4" role="img" aria-label="Illustration of Terracotta Loft"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><use href="#land-a"/></svg></span></a><span class="badge">Guest favourite</span>
+  <button class="fav" type="button" aria-pressed="false" aria-label="Save Terracotta Loft"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-5.2-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 5.800-8 11-8 11z"/></svg></span></button></div>
+  <a href="#"><div class="row"><h3>Terracotta Loft</h3><span class="rate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.1L12 18l-6.4 3.6L7 14.5 1.7 9.5l7.2-.9z"/></svg>4.81</span></div>
+  <p class="meta">Old Mirren · 3 guests · 1 bed</p><p class="price"><b>$109</b> night</p></a>
+</article>
+<article class="home a-reveal">
+  <div class="imgwrap"><a href="#" aria-label="Orchard Barn, Quillcombe"><span class="scene s5" role="img" aria-label="Illustration of Orchard Barn"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><use href="#land-c"/></svg></span></a>
+  <button class="fav" type="button" aria-pressed="false" aria-label="Save Orchard Barn"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-5.2-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 5.800-8 11-8 11z"/></svg></span></button></div>
+  <a href="#"><div class="row"><h3>Orchard Barn</h3><span class="rate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.1L12 18l-6.4 3.6L7 14.5 1.7 9.5l7.2-.9z"/></svg>4.90</span></div>
+  <p class="meta">Quillcombe · 8 guests · 4 beds</p><p class="price"><b>$236</b> night</p></a>
+</article>
+<article class="home a-reveal">
+  <div class="imgwrap"><a href="#" aria-label="Glasshouse by the Dunes, Sandry Point"><span class="scene s6" role="img" aria-label="Illustration of Glasshouse by the Dunes"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><use href="#land-b"/></svg></span></a><span class="badge">New</span>
+  <button class="fav" type="button" aria-pressed="false" aria-label="Save Glasshouse by the Dunes"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-5.2-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 5.800-8 11-8 11z"/></svg></span></button></div>
+  <a href="#"><div class="row"><h3>Glasshouse by the Dunes</h3><span class="rate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.1L12 18l-6.4 3.6L7 14.5 1.7 9.5l7.2-.9z"/></svg>4.95</span></div>
+  <p class="meta">Sandry Point · 2 guests · 1 bed</p><p class="price"><b>$167</b> night</p></a>
+</article>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="ideas">
+  <div class="wrap">
+    <div class="head"><div><h2>Trip ideas</h2><p>Start with a feeling, then pick the place.</p></div><a class="more a-more" href="#">All ideas</a></div>
+    <div class="ideas">
+<a class="idea a-reveal" href="#"><span class="scene s1" role="img" aria-label="Illustration for Long weekends"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><use href="#land-a"/></svg><span class="cap"><h3>Long weekends</h3><p>Two nights, under 3 hours away</p></span></span></a>
+<a class="idea a-reveal" href="#"><span class="scene s5" role="img" aria-label="Illustration for Slow coast"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><use href="#land-c"/></svg><span class="cap"><h3>Slow coast</h3><p>Walk, swim, repeat</p></span></span></a>
+<a class="idea a-reveal" href="#"><span class="scene s3" role="img" aria-label="Illustration for Mountain huts"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><use href="#land-c"/></svg><span class="cap"><h3>Mountain huts</h3><p>Ridge views, wood stoves</p></span></span></a>
+<a class="idea a-reveal" href="#"><span class="scene s4" role="img" aria-label="Illustration for City plus sea"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><use href="#land-b"/></svg><span class="cap"><h3>City plus sea</h3><p>Museums by day, tide by night</p></span></span></a>
+    </div>
+  </div>
+</section>
+
+<section class="block alt" id="plus">
+  <div class="wrap member">
+    <div class="a-reveal">
+      <p class="a-eyebrow txt-accent">Tidepath Plus</p>
+      <h2>Book more, pay less</h2>
+      <p class="a-intro">One yearly plan. Perks apply to every stay, automatically.</p>
+      <div class="a-buttons"><a class="a-button a-button-accent" href="#">Join Plus</a><a class="a-button a-button-secondary" href="#">See all perks</a></div>
+    </div>
+    <div class="plan a-reveal">
+      <div class="plan-top"><h3>Plus member</h3><p class="price">$59 <small>per year</small></p></div>
+      <ul class="perks">
+        <li><span class="n">10%</span><span><b>Off every stay</b>Applied at checkout, no codes.</span></li>
+        <li><span class="n">24h</span><span><b>Free cancellation</b>On any Plus-eligible home.</span></li>
+        <li><span class="n">2pm</span><span><b>Late checkout</b>Where the host offers it.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <nav class="cols" aria-label="Footer"><details open><summary>Explore</summary><ul><li><a href="#">Stays</a></li><li><a href="#">Experiences</a></li><li><a href="#">Trip ideas</a></li><li><a href="#">Gift cards</a></li></ul></details><details open><summary>Members</summary><ul><li><a href="#">Tidepath Plus</a></li><li><a href="#">Perks</a></li><li><a href="#">Partner homes</a></li><li><a href="#">Refer a friend</a></li></ul></details><details open><summary>Hosting</summary><ul><li><a href="#">List your home</a></li><li><a href="#">Host guide</a></li><li><a href="#">Community</a></li><li><a href="#">Insurance</a></li></ul></details><details open><summary>Company</summary><ul><li><a href="#">About</a></li><li><a href="#">Careers</a></li><li><a href="#">Press</a></li><li><a href="#">Contact</a></li></ul></details></nav>
+  <div class="legal"><span>&copy; 2026 Tidepath, a fictional company.</span><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Sitemap</a></div>
+</div></footer>
+
+<script>
+document.documentElement.classList.add('a-js');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}}),{rootMargin:'0px 0px -10% 0px'});
+document.querySelectorAll('.a-reveal').forEach(el=>io.observe(el));
+const nav=document.getElementById('nav');addEventListener('scroll',()=>nav.classList.toggle('is-stuck',scrollY>8),{passive:true});
+document.querySelectorAll('.paddles button').forEach(b=>b.onclick=()=>{const r=document.getElementById('rail');r.scrollBy({left:b.dataset.dir*r.clientWidth*.8,behavior:'smooth'});});
+document.querySelectorAll('.fav').forEach(b=>b.onclick=()=>b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true'));
+document.querySelectorAll('.mode button').forEach(b=>b.onclick=()=>document.querySelectorAll('.mode button').forEach(x=>x.setAttribute('aria-pressed',x===b)));
+document.querySelectorAll('#menu a').forEach(a=>a.onclick=()=>document.getElementById('menu').hidePopover());
+const mq=matchMedia('(max-width:734px)'),sync=()=>document.querySelectorAll('.cols details').forEach(d=>d.open=!mq.matches);sync();mq.onchange=sync;
+</script>
+</body>
+</html>

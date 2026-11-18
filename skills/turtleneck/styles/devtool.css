@@ -1,0 +1,69 @@
+/* turtleneck preset: devtool (developer & cloud). Load AFTER tokens.css. Light default, one dark band; dark mode follows the OS.
+   Blend of 5 reference sites (research notes kept outside the skill). Values are light-dark(light, dark).
+   Fonts (free, optional; the fallback stack works):
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Inter+Tight:wght@400..500&family=JetBrains+Mono&display=swap"> */
+
+:root {
+  --a-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --a-font-display: "Inter Tight", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --a-font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --a-weight-display: 450;
+  --a-body-size: 1rem; --a-body-lh: 1.6; --a-body-track: 0;
+  --a-size-hero: clamp(2.25rem, 1.898rem + 1.502vw, 3.25rem);     /* 36 -> 52 */
+  --a-size-headline: clamp(1.75rem, 1.486rem + 1.127vw, 2.5rem);  /* 28 -> 40 */
+  --a-size-section: clamp(1.5rem, 1.324rem + 0.751vw, 2rem);      /* 24 -> 32 */
+  --a-size-tile: 1.25rem;                                         /* 20 */
+  --a-size-subhead: 1.125rem;
+  --a-lh-display: 1.1; --a-track-display: -0.02em;
+  --a-eyebrow-font: var(--a-font-mono);
+  --a-eyebrow-size: 0.8125rem; --a-eyebrow-weight: 400; --a-eyebrow-track: 0; --a-eyebrow-color: var(--a-text-tertiary);
+  --a-intro-size: 1.125rem; --a-intro-weight: 400; --a-intro-color: var(--a-text-secondary);
+
+  --a-text: light-dark(#0f1a1c, #eef1f0);
+  --a-text-secondary: light-dark(#4f5b60, #a3adb0);   /* body grey, never pure black */
+  --a-text-tertiary: light-dark(#637077, #8a969b);
+  --a-accent-text: light-dark(#087f7a, #2bb3a8);
+  --a-violator: var(--a-link);
+  --a-bg: light-dark(#ffffff, #121514);
+  --a-bg-alt: light-dark(#f5f7f6, #1b1f1e);
+  --a-bg-elevated: light-dark(#ffffff, #1b1f1e);
+  --a-fill-quaternary: light-dark(#eef1f0, #242928);
+  --a-hairline: light-dark(#dde2e0, rgba(255, 255, 255, 0.1));
+  --a-blue: light-dark(#087f7a, #2bb3a8);         /* deep teal; text on it flips with the scheme */
+  --a-blue-hover: light-dark(#066a66, #4cc4ba);
+  --a-on-accent: light-dark(#ffffff, #121514);
+  --a-code-bg: #0f1a1c;                           /* code surface, both themes */
+  --a-code-text: #e6edf0;
+
+  --a-nav-bg: var(--a-bg);
+  --a-nav-text: var(--a-text-secondary);
+  --a-nav-blur: none;
+  --a-nav-h: 68px;
+
+  --a-radius-tile: 8px;
+  --a-radius-card: 8px;
+  --a-radius-button: 6px;
+  --a-button-pad: 0 20px; --a-button-size: 15px; --a-button-weight: 500; --a-button-track: 0;
+  --a-button2-bg: var(--a-bg);
+  --a-button2-text: var(--a-text);
+  --a-button2-border: var(--a-hairline);
+  --a-button2-hover-bg: var(--a-fill-quaternary);
+  --a-button2-hover-text: var(--a-text);
+  --a-tile-bg: var(--a-bg-elevated);
+  --a-tile-bg-alt: var(--a-bg-elevated);
+  --a-tile-border: 1px solid var(--a-hairline);
+
+  --a-content: 720px;                             /* prose */
+  --a-content-wide: 1280px;
+  --a-section-pad: clamp(4rem, 3.296rem + 3.005vw, 6rem);         /* 64 -> 96 */
+  --a-tile-pad: 24px;
+  --a-bento-gap: 24px;
+  --a-tile-gap: 24px;
+
+  --a-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --a-dur: 0.2s;
+  --a-reveal-rise: 8px; --a-reveal-dur: 0.5s;
+}
+
+pre { background: var(--a-code-bg); color: var(--a-code-text); border-radius: var(--a-radius-card); padding: 16px 20px; overflow-x: auto; }
+.a-raised { box-shadow: 0 12px 28px light-dark(rgba(15, 26, 28, 0.1), rgba(0, 0, 0, 0.4)); }   /* menus, one featured card */
